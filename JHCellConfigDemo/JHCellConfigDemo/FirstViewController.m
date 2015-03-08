@@ -31,9 +31,9 @@
         // 二维数组作为tableView的结构数据源
         _dataArray = [NSMutableArray array];
         
-        JHCellConfig *avatar = [JHCellConfig cellConfigWithClassName:NSStringFromClass([UserInfoCell class]) title:@"个人信息" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfUserInfo];
+        JHCellConfig *userInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([UserInfoCell class]) title:@"个人信息" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfUserInfo];
         
-        [_dataArray addObject:@[avatar]];
+        [_dataArray addObject:@[userInfo]];
         
         
     }
