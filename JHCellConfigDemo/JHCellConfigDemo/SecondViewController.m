@@ -14,14 +14,40 @@
 
 @implementation SecondViewController
 
-- (void)viewDidLoad {
+#pragma mark - VC lifecycle
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self setNavBar];
+    
+    [self addAllViews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    
+}
+
+#pragma mark - Methods
+- (void)setNavBar
+{
+    self.title = @"敬请期待";
+}
+
+- (void)addAllViews
+{
+    
+    
 }
 
 @end
