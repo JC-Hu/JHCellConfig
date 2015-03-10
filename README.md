@@ -18,7 +18,10 @@ JHCellConfig
 我会不定期更新此demo，加上一些“高级”用法，即应对不同需求时的用法，可以关注下面的微信公众号，更新时我会给你们发消息
 
 -------
-Email：jchu_dlcn@icloud.com
+> Email：jchu_dlcn@icloud.com
+
 > 新浪微博：@胡竞尘_要做全面发展的好青年
+
 > QQ：601541744
+
 > 微信公众号：hujingchen4096
