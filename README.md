@@ -19,6 +19,6 @@ JHCellConfig
 
 -------
 Email：jchu_dlcn@icloud.com
-新浪微博：@胡竞尘_要做全面发展的好青年
-QQ：601541744
-微信公众号：hujingchen4096
+> 新浪微博：@胡竞尘_要做全面发展的好青年
+> QQ：601541744
+> 微信公众号：hujingchen4096
