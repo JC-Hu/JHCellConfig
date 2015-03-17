@@ -12,6 +12,7 @@
 #import "BuyInfoCell.h"
 #import "CommentCell.h"
 #import "SellerInfoCell.h"
+#import "GeneralDetailViewController.h"
 
 @interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -29,6 +30,8 @@
 
 #pragma mark - 懒加载
 
+
+
 - (NSMutableArray *)dataArray
 {
     if (!_dataArray) {
@@ -36,6 +39,15 @@
         // 二维数组作为tableView的结构数据源
         // 改变不同类型cell的顺序、增删时，只需在此修改即可，无需在多个tableView代理方法中逐个修改
         _dataArray = [NSMutableArray array];
+        
+        /**
+         *
+         * className:类名
+         * title:标题，可用做cell直观的区分
+         * showInfoMethod:此类cell用来显示数据模型的方法， 如@selector(showInfo:)
+         * heightOfCell:此类cell的高度
+         *
+         */
         
         // 大图
         JHCellConfig *bigPhoto = [JHCellConfig cellConfigWithClassName:NSStringFromClass([BigPhotoCell class]) title:@"大图" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfBigPhoto];
@@ -142,7 +154,33 @@
 #pragma mark 选中cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 拿到cellConfig
+    JHCellConfig *cellConfig = self.dataArray[indexPath.section][indexPath.row];
     
+    NSString *valueString = nil;
+    
+    
+    /**
+     *
+     * 对不同种cell进行不同设置时，通过 其对应的 cellConfig.title 进行判断。
+     *
+     * （这样，不论你将dataArray如何修改，插入、删除、改变顺序，都无须再次修改这里的判断）
+     *
+     */
+
+    if ([cellConfig.title isEqualToString:@"大图"] || [cellConfig.title isEqualToString:@"购买信息"]) {
+        
+        valueString = @"购买信息";
+        
+    } else {
+        valueString = cellConfig.title;
+    }
+    
+    GeneralDetailViewController *detailVC = [GeneralDetailViewController new];
+    
+    detailVC.title = valueString;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

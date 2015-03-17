@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GeneralDetailViewController">
+            <connections>
+                <outlet property="detailLabel" destination="fdr-ja-GZ1" id="KEQ-eP-DZ0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这页要显示的是" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCZ-Uc-Upc">
+                    <rect key="frame" x="8" y="257" width="584" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="yli-8A-Uta"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdr-ja-GZ1">
+                    <rect key="frame" x="216" y="350" width="168" height="77"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="168" id="ZGO-db-7tg"/>
+                        <constraint firstAttribute="height" constant="77" id="fQa-cs-CeU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hCZ-Uc-Upc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="257" id="4v3-wr-OpN"/>
+                <constraint firstItem="fdr-ja-GZ1" firstAttribute="top" secondItem="hCZ-Uc-Upc" secondAttribute="bottom" constant="8" symbolic="YES" id="BDC-jB-Mom"/>
+                <constraint firstItem="hCZ-Uc-Upc" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="QeW-nH-c3E"/>
+                <constraint firstItem="hCZ-Uc-Upc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="bZ6-PS-4DN"/>
+                <constraint firstItem="fdr-ja-GZ1" firstAttribute="centerX" secondItem="hCZ-Uc-Upc" secondAttribute="centerX" id="x9J-Th-kvz"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

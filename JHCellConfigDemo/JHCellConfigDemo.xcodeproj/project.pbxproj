@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04276D971AB7BDFC0069DCDB /* GeneralDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04276D951AB7BDFC0069DCDB /* GeneralDetailViewController.m */; };
+		04276D981AB7BDFC0069DCDB /* GeneralDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04276D961AB7BDFC0069DCDB /* GeneralDetailViewController.xib */; };
 		04B8BC281AADD64A006FACEA /* BigPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8BC211AADD64A006FACEA /* BigPhotoCell.m */; };
 		04B8BC291AADD64A006FACEA /* BuyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8BC231AADD64A006FACEA /* BuyInfoCell.m */; };
 		04B8BC2A1AADD64A006FACEA /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8BC251AADD64A006FACEA /* CommentCell.m */; };
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04276D941AB7BDFC0069DCDB /* GeneralDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralDetailViewController.h; sourceTree = "<group>"; };
+		04276D951AB7BDFC0069DCDB /* GeneralDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralDetailViewController.m; sourceTree = "<group>"; };
+		04276D961AB7BDFC0069DCDB /* GeneralDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralDetailViewController.xib; sourceTree = "<group>"; };
 		04B8BC201AADD64A006FACEA /* BigPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigPhotoCell.h; sourceTree = "<group>"; };
 		04B8BC211AADD64A006FACEA /* BigPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigPhotoCell.m; sourceTree = "<group>"; };
 		04B8BC221AADD64A006FACEA /* BuyInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyInfoCell.h; sourceTree = "<group>"; };
@@ -152,6 +157,9 @@
 				04BA82461A9DF5E7004EE5C6 /* FirstViewController.m */,
 				04BA82481A9DF5E7004EE5C6 /* SecondViewController.h */,
 				04BA82491A9DF5E7004EE5C6 /* SecondViewController.m */,
+				04276D941AB7BDFC0069DCDB /* GeneralDetailViewController.h */,
+				04276D951AB7BDFC0069DCDB /* GeneralDetailViewController.m */,
+				04276D961AB7BDFC0069DCDB /* GeneralDetailViewController.xib */,
 				04B8BC1F1AADD64A006FACEA /* Cells */,
 				04B8BC2C1AADD666006FACEA /* Models */,
 				04B8BC351AADDCC3006FACEA /* Images */,
@@ -280,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04276D981AB7BDFC0069DCDB /* GeneralDetailViewController.xib in Resources */,
 				04BA824D1A9DF5E7004EE5C6 /* Main.storyboard in Resources */,
 				04BA82521A9DF5E7004EE5C6 /* LaunchScreen.xib in Resources */,
 				04B8BC3D1AADDCC3006FACEA /* cell_04.png in Resources */,
@@ -312,6 +321,7 @@
 				04BA82471A9DF5E7004EE5C6 /* FirstViewController.m in Sources */,
 				04B8BC321AADD900006FACEA /* SellerInfoCell.m in Sources */,
 				04BA82411A9DF5E7004EE5C6 /* main.m in Sources */,
+				04276D971AB7BDFC0069DCDB /* GeneralDetailViewController.m in Sources */,
 				04B8BC281AADD64A006FACEA /* BigPhotoCell.m in Sources */,
 				04B8BC2F1AADD681006FACEA /* Model.m in Sources */,
 			);
