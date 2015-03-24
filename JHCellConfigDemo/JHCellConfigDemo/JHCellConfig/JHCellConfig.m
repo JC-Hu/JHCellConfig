@@ -10,7 +10,16 @@
 
 @implementation JHCellConfig
 
-/// 便利构造器
+/**
+ * @brief 便利构造器
+ *
+ * @param className:类名
+ * @param title:标题，可用做cell直观的区分
+ * @param showInfoMethod:此类cell用来显示数据模型的方法， 如@selector(showInfo:)
+ * @param heightOfCell:此类cell的高度
+ *
+ *
+ */
 + (instancetype)cellConfigWithClassName:(NSString *)className
                                   title:(NSString *)title
                          showInfoMethod:(SEL)showInfoMethod

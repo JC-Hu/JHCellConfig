@@ -11,6 +11,7 @@
 
 @interface JHCellConfig : NSObject
 
+#warning 请仔细阅读注释
 /**
  
  #本类相当于将tableView中cell所需的基本信息存储下来，以便放到数组中管理
@@ -33,7 +34,7 @@
 /// cell类名
 @property (nonatomic, strong) NSString *className;
 
-/// 标题 - 如“我的订单”，不一定使用
+/// 标题 - 如“我的订单”，对不同种cell进行不同设置时，通过 其对应的 cellConfig.title 进行判断
 @property (nonatomic, strong) NSString *title;
 
 /// 显示数据模型的方法

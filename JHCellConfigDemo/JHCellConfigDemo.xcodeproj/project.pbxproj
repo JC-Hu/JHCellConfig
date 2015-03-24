@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0418E49B1ABC5B9200489DF5 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418E49A1ABC5B9200489DF5 /* Comment.m */; };
+		0423AC341ABD9BA900DA3430 /* AdvanceCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423AC331ABD9BA900DA3430 /* AdvanceCommentCell.m */; };
+		0423AC381AC1005A00DA3430 /* UIView+Shortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423AC371AC1005A00DA3430 /* UIView+Shortcut.m */; };
 		04276D971AB7BDFC0069DCDB /* GeneralDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04276D951AB7BDFC0069DCDB /* GeneralDetailViewController.m */; };
 		04276D981AB7BDFC0069DCDB /* GeneralDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04276D961AB7BDFC0069DCDB /* GeneralDetailViewController.xib */; };
 		04B8BC281AADD64A006FACEA /* BigPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8BC211AADD64A006FACEA /* BigPhotoCell.m */; };
@@ -40,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0418E4991ABC5B9200489DF5 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		0418E49A1ABC5B9200489DF5 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		0423AC321ABD9BA900DA3430 /* AdvanceCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceCommentCell.h; sourceTree = "<group>"; };
+		0423AC331ABD9BA900DA3430 /* AdvanceCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceCommentCell.m; sourceTree = "<group>"; };
+		0423AC361AC1005A00DA3430 /* UIView+Shortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shortcut.h"; sourceTree = "<group>"; };
+		0423AC371AC1005A00DA3430 /* UIView+Shortcut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shortcut.m"; sourceTree = "<group>"; };
 		04276D941AB7BDFC0069DCDB /* GeneralDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralDetailViewController.h; sourceTree = "<group>"; };
 		04276D951AB7BDFC0069DCDB /* GeneralDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralDetailViewController.m; sourceTree = "<group>"; };
 		04276D961AB7BDFC0069DCDB /* GeneralDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralDetailViewController.xib; sourceTree = "<group>"; };
@@ -95,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0423AC351AC1005A00DA3430 /* UIView+Shortcut */ = {
+			isa = PBXGroup;
+			children = (
+				0423AC361AC1005A00DA3430 /* UIView+Shortcut.h */,
+				0423AC371AC1005A00DA3430 /* UIView+Shortcut.m */,
+			);
+			path = "UIView+Shortcut";
+			sourceTree = "<group>";
+		};
 		04B8BC1F1AADD64A006FACEA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +124,8 @@
 				04B8BC251AADD64A006FACEA /* CommentCell.m */,
 				04B8BC301AADD900006FACEA /* SellerInfoCell.h */,
 				04B8BC311AADD900006FACEA /* SellerInfoCell.m */,
+				0423AC321ABD9BA900DA3430 /* AdvanceCommentCell.h */,
+				0423AC331ABD9BA900DA3430 /* AdvanceCommentCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -115,6 +135,8 @@
 			children = (
 				04B8BC2D1AADD681006FACEA /* Model.h */,
 				04B8BC2E1AADD681006FACEA /* Model.m */,
+				0418E4991ABC5B9200489DF5 /* Comment.h */,
+				0418E49A1ABC5B9200489DF5 /* Comment.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +183,7 @@
 				04276D951AB7BDFC0069DCDB /* GeneralDetailViewController.m */,
 				04276D961AB7BDFC0069DCDB /* GeneralDetailViewController.xib */,
 				04B8BC1F1AADD64A006FACEA /* Cells */,
+				0423AC351AC1005A00DA3430 /* UIView+Shortcut */,
 				04B8BC2C1AADD666006FACEA /* Models */,
 				04B8BC351AADDCC3006FACEA /* Images */,
 				04BA824B1A9DF5E7004EE5C6 /* Main.storyboard */,
@@ -318,8 +341,11 @@
 				04BA82441A9DF5E7004EE5C6 /* AppDelegate.m in Sources */,
 				04B8BC291AADD64A006FACEA /* BuyInfoCell.m in Sources */,
 				04B8BC2A1AADD64A006FACEA /* CommentCell.m in Sources */,
+				0423AC341ABD9BA900DA3430 /* AdvanceCommentCell.m in Sources */,
+				0423AC381AC1005A00DA3430 /* UIView+Shortcut.m in Sources */,
 				04BA82471A9DF5E7004EE5C6 /* FirstViewController.m in Sources */,
 				04B8BC321AADD900006FACEA /* SellerInfoCell.m in Sources */,
+				0418E49B1ABC5B9200489DF5 /* Comment.m in Sources */,
 				04BA82411A9DF5E7004EE5C6 /* main.m in Sources */,
 				04276D971AB7BDFC0069DCDB /* GeneralDetailViewController.m in Sources */,
 				04B8BC281AADD64A006FACEA /* BigPhotoCell.m in Sources */,
@@ -446,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JHCellConfigDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -456,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JHCellConfigDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
