@@ -10,6 +10,7 @@ JHCellConfig
 
 关于如何使用请看demo，注释写了很多
 
+![image](https://github.com/JC-Hu/JHCellConfig/blob/master/123.gif)
 
 
 优点：改变不同类型cell的顺序、增删时，极为方便，只需改变VC中数据源数组即可，无需在多个tableView代理方法中逐个修改
