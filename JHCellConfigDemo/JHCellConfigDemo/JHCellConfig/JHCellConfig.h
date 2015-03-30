@@ -70,5 +70,9 @@
 - (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView
                                          dataModel:(id)dataModel;
 
+/// 根据cellConfig生成cell，重用ID为cell类名,可使用Nib
+- (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView
+                                         dataModel:(id)dataModel
+                                             isNib:(BOOL)isNib;
 
 @end
