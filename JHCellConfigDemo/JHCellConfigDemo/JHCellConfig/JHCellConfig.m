@@ -57,7 +57,7 @@
     // 加入使用nib的方法
     if (!cell) {
         
-        if (isNib) {
+        if (isNib && ![self.className isEqualToString:@"UITableViewCell"]) {
             NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:self.className owner:nil options:nil];
             cell = [nibs lastObject];
             
