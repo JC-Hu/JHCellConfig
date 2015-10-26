@@ -317,7 +317,10 @@
     // -----------------------高级评论相关
     if ([cellConfig.title isEqualToString:@"评论"]) {
         
-        return [AdvanceCommentCell returnCellHeight: self.commentDataArray[indexPath.row]];
+        
+        return [cellConfig heightCachedWithCalculateBlock:^CGFloat{
+            return [AdvanceCommentCell returnCellHeight: self.commentDataArray[indexPath.row]];
+        }];
     }
     
     // -----------------------

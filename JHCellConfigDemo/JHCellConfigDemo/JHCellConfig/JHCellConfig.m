@@ -10,6 +10,7 @@
 
 @implementation JHCellConfig
 
+#pragma mark - Core
 /**
  * @brief 便利构造器
  *
@@ -49,20 +50,21 @@
 {
     Class cellClass = NSClassFromString(self.className);
     
+    if (isNib) {
+        [self registerForTableView:tableView];
+    }
     
-    // 重用cell
-    NSString *cellID = self.className;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellID]];
     
-    // 加入使用nib的方法
     if (!cell) {
         
-        if (isNib && ![self.className isEqualToString:@"UITableViewCell"]) {
+        // 加入使用nib的方法
+        if (isNib && ![self.className isEqualToString:@"UITableViewCell"] && self.className.length) {
             NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:self.className owner:nil options:nil];
             cell = [nibs lastObject];
             
         } else {
-            cell = [[cellClass alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
+            cell = [[cellClass?:[UITableViewCell class] alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[self cellID]];
             
         }
     }
@@ -78,6 +80,32 @@
     }
     
     return cell;
+}
+
+
+#pragma mark - Dynamic Height
+/// 缓存高度
+- (CGFloat)heightCachedWithCalculateBlock:(CGFloat (^)(void) )block
+{
+    if (!self.dynamicHeightOfCell && block) {
+        // 没有计算过高度
+        // 计算高度并保存
+        self.dynamicHeightOfCell = block();
+    }
+    
+    return self.dynamicHeightOfCell;
+}
+
+#pragma mark - Assist
+/// 根据类名，快捷注册cell
+- (void)registerForTableView:(UITableView *)tableView
+{
+    [tableView registerNib:[UINib nibWithNibName:self.className bundle:nil] forCellReuseIdentifier:[self cellID]];
+}
+
+- (NSString *)cellID
+{
+    return self.className;
 }
 
 @end
