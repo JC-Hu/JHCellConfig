@@ -50,6 +50,9 @@
 /// 预留属性remark
 @property (nonatomic, strong) NSString *remark;
 
+/// 指定重用ID，不赋值则使用类名
+@property (nonatomic, strong) NSString *reuseID;
+
 
 #pragma mark - Core
 /**

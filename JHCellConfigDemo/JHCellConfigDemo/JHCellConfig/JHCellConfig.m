@@ -105,6 +105,9 @@
 
 - (NSString *)cellID
 {
+    if (self.reuseID.length) {
+        return self.reuseID;
+    }
     return self.className;
 }
 
