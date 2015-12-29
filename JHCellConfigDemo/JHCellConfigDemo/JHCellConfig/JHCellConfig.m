@@ -50,7 +50,7 @@
 {
     Class cellClass = NSClassFromString(self.className);
     
-    if (isNib) {
+    if (isNib && ![self.className isEqualToString:@"UITableViewCell"] && self.className.length) {
         [self registerForTableView:tableView];
     }
     
