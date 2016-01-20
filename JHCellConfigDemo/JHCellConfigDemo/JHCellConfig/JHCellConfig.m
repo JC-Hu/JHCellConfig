@@ -50,18 +50,23 @@
 {
     Class cellClass = NSClassFromString(self.className);
     
-    if (isNib && ![self.className isEqualToString:@"UITableViewCell"] && self.className.length) {
-        [self registerForTableView:tableView];
-    }
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellID]];
     
     if (!cell) {
         
         // 加入使用nib的方法
-        if (isNib && ![self.className isEqualToString:@"UITableViewCell"] && self.className.length) {
+        if (isNib && self.className.length &&![self.className isEqualToString:@"UITableViewCell"]) {
             NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:self.className owner:nil options:nil];
-            cell = [nibs lastObject];
+            
+            for (id obj in nibs) {
+                if ([obj isKindOfClass: cellClass]) {
+                    cell = obj;
+                }
+            }
+            
+            if (!cell) {
+                NSLog(@"Please Check Nib File About %@", cellClass);
+            }
             
         } else {
             cell = [[cellClass?:[UITableViewCell class] alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[self cellID]];
