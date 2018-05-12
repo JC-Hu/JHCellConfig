@@ -29,7 +29,7 @@
 		04BA824F1A9DF5E7004EE5C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BA824E1A9DF5E7004EE5C6 /* Images.xcassets */; };
 		04BA82521A9DF5E7004EE5C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA82501A9DF5E7004EE5C6 /* LaunchScreen.xib */; };
 		04BA825E1A9DF5E7004EE5C6 /* JHCellConfigDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA825D1A9DF5E7004EE5C6 /* JHCellConfigDemoTests.m */; };
-		04BA826A1A9DF6D3004EE5C6 /* JHCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82691A9DF6D3004EE5C6 /* JHCellConfig.m */; };
+		9DBF802C20A6E4A2001ABD8C /* JHCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBF802B20A6E4A2001ABD8C /* JHCellConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +82,8 @@
 		04BA82571A9DF5E7004EE5C6 /* JHCellConfigDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JHCellConfigDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BA825C1A9DF5E7004EE5C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04BA825D1A9DF5E7004EE5C6 /* JHCellConfigDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHCellConfigDemoTests.m; sourceTree = "<group>"; };
-		04BA82681A9DF6D3004EE5C6 /* JHCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCellConfig.h; sourceTree = "<group>"; };
-		04BA82691A9DF6D3004EE5C6 /* JHCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCellConfig.m; sourceTree = "<group>"; };
+		9DBF802A20A6E4A2001ABD8C /* JHCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCellConfig.h; sourceTree = "<group>"; };
+		9DBF802B20A6E4A2001ABD8C /* JHCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCellConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,7 @@
 		04BA823D1A9DF5E7004EE5C6 /* JHCellConfigDemo */ = {
 			isa = PBXGroup;
 			children = (
-				04BA82671A9DF6AB004EE5C6 /* JHCellConfig */,
+				9DBF802920A6E4A2001ABD8C /* JHCellConfig */,
 				04B8BC341AADDB0A006FACEA /* Macro.h */,
 				04BA82451A9DF5E7004EE5C6 /* FirstViewController.h */,
 				04BA82461A9DF5E7004EE5C6 /* FirstViewController.m */,
@@ -222,13 +222,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04BA82671A9DF6AB004EE5C6 /* JHCellConfig */ = {
+		9DBF802920A6E4A2001ABD8C /* JHCellConfig */ = {
 			isa = PBXGroup;
 			children = (
-				04BA82681A9DF6D3004EE5C6 /* JHCellConfig.h */,
-				04BA82691A9DF6D3004EE5C6 /* JHCellConfig.m */,
+				9DBF802A20A6E4A2001ABD8C /* JHCellConfig.h */,
+				9DBF802B20A6E4A2001ABD8C /* JHCellConfig.m */,
 			);
-			path = JHCellConfig;
+			name = JHCellConfig;
+			path = ../../src/JHCellConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04BA826A1A9DF6D3004EE5C6 /* JHCellConfig.m in Sources */,
 				04BA824A1A9DF5E7004EE5C6 /* SecondViewController.m in Sources */,
 				04BA82441A9DF5E7004EE5C6 /* AppDelegate.m in Sources */,
 				04B8BC291AADD64A006FACEA /* BuyInfoCell.m in Sources */,
@@ -344,6 +344,7 @@
 				0423AC341ABD9BA900DA3430 /* AdvanceCommentCell.m in Sources */,
 				0423AC381AC1005A00DA3430 /* UIView+Shortcut.m in Sources */,
 				04BA82471A9DF5E7004EE5C6 /* FirstViewController.m in Sources */,
+				9DBF802C20A6E4A2001ABD8C /* JHCellConfig.m in Sources */,
 				04B8BC321AADD900006FACEA /* SellerInfoCell.m in Sources */,
 				0418E49B1ABC5B9200489DF5 /* Comment.m in Sources */,
 				04BA82411A9DF5E7004EE5C6 /* main.m in Sources */,
