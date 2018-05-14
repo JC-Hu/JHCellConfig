@@ -11,41 +11,36 @@
 @implementation JHCellConfig
 
 #pragma mark - Core
-/**
- * @brief 便利构造器
- *
- * @param className:类名
- * @param title:标题，可用做cell直观的区分
- * @param showInfoMethod:此类cell用来显示数据模型的方法， 如@selector(showInfo:)
- * @param heightOfCell:此类cell的高度
- *
- *
- */
-+ (instancetype)cellConfigWithClassName:(NSString *)className
+
++ (instancetype)cellConfigWithCellClass:(Class)cellClass
+                              dataModel:(id)dataModel
+{
+    return [self cellConfigWithCellClass:cellClass title:nil dataModel:dataModel];
+}
+
++ (instancetype)cellConfigWithCellClass:(Class)cellClass
                                   title:(NSString *)title
-                         showInfoMethod:(SEL)showInfoMethod
-                           heightOfCell:(CGFloat)heightOfCell
+                              dataModel:(id)dataModel
 {
     JHCellConfig *cellConfig = [JHCellConfig new];
     
-    cellConfig.className = className;
+    cellConfig.className = NSStringFromClass(cellClass);
     cellConfig.title = title;
-    cellConfig.showInfoMethod = showInfoMethod;
-    cellConfig.heightOfCell = heightOfCell;
+    cellConfig.updateContentMethod = @selector(updateContentWithCellConfig:);
+    cellConfig.cellHeightMethod = @selector(cellHeightWithCellConfig:);
+    cellConfig.dataModel = dataModel;
     
     return cellConfig;
 }
 
 /// 根据cellConfig生成cell，重用ID为cell类名
 - (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView
-                                         dataModel:(id)dataModel
 {
-    return [self cellOfCellConfigWithTableView:tableView dataModel:dataModel isNib:NO];
+    return [self cellOfCellConfigWithTableView:tableView isNib:NO];
 }
 
 /// 根据cellConfig生成cell，重用ID为cell类名,可使用Nib
 - (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView
-                                         dataModel:(id)dataModel
                                              isNib:(BOOL)isNib
 {
     Class cellClass = NSClassFromString(self.className);
@@ -53,7 +48,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellID]];
     
     if (!cell) {
-        
         // 加入使用nib的方法
         if (isNib && self.className.length &&![self.className isEqualToString:@"UITableViewCell"]) {
             NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:self.className owner:nil options:nil];
@@ -63,42 +57,61 @@
                     cell = obj;
                 }
             }
-            
             if (!cell) {
                 NSLog(@"Please Check Nib File About %@", cellClass);
             }
             
         } else {
             cell = [[cellClass?:[UITableViewCell class] alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:[self cellID]];
-            
         }
     }
     
-    // 设置cell
-    if (self.showInfoMethod && [cell respondsToSelector:self.showInfoMethod]) {
+    // 更新cell界面
+    if (self.updateContentMethod && [cell respondsToSelector:self.updateContentMethod]) {
         
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [cell performSelector:self.showInfoMethod withObject:dataModel];
+        [cell performSelector:self.updateContentMethod withObject:self];
 #pragma clang diagnostic pop
-        
     }
     
+    if ([cell conformsToProtocol:@protocol(JHCellConfigProtocol)]) {
+        ((id <JHCellConfigProtocol>)cell).cellConfig = self;
+    }
     return cell;
 }
 
-
-#pragma mark - Dynamic Height
-/// 缓存高度
-- (CGFloat)heightCachedWithCalculateBlock:(CGFloat (^)(void) )block
+- (CGFloat)cellHeight
 {
-    if (!self.dynamicHeightOfCell && block) {
-        // 没有计算过高度
-        // 计算高度并保存
-        self.dynamicHeightOfCell = block();
+    if (self.constantHeight) {
+        return self.constantHeight;
     }
     
-    return self.dynamicHeightOfCell;
+    if (self.cachedHeight) {
+        return self.cachedHeight;
+    }
+    
+    Class cellClass = NSClassFromString(self.className);
+    
+    if (self.cellHeightMethod && [cellClass respondsToSelector:self.cellHeightMethod]) {
+        
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
+                                    [cellClass methodSignatureForSelector:self.cellHeightMethod]];
+        
+        JHCellConfig *tempSelf = self;
+        [invocation setSelector:self.cellHeightMethod];
+        [invocation setTarget:cellClass];
+        [invocation setArgument:&tempSelf atIndex:2];
+        [invocation invoke];
+        CGFloat height;
+        
+        [invocation getReturnValue:&height];
+        
+        self.cachedHeight = height;
+        
+        return self.cachedHeight;
+    }
+    return self.cachedHeight;
 }
 
 #pragma mark - Assist

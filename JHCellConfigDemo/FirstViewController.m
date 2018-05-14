@@ -16,11 +16,6 @@
 
 @interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *mainTableView;
-
-/// cellConfig数据源
-@property (nonatomic, strong) NSMutableArray *dataArray;
-
 /// 数据模型
 @property (nonatomic, strong) Model *modelToShow;
 
@@ -28,63 +23,32 @@
 
 @implementation FirstViewController
 
-#pragma mark - 懒加载
-
-
-
-- (NSMutableArray *)dataArray
+- (void)reloadDataArray
 {
-    if (!_dataArray) {
-        
-        // 二维数组作为tableView的结构数据源
-        // 改变不同类型cell的顺序、增删时，只需在此修改即可，无需在多个tableView代理方法中逐个修改
-        _dataArray = [NSMutableArray array];
-        
-        /**
-         *
-         * className:类名
-         * title:标题，可用做cell直观的区分
-         * showInfoMethod:此类cell用来显示数据模型的方法， 如@selector(showInfo:)
-         * heightOfCell:此类cell的高度
-         *
-         */
-        
-        // 大图
-        JHCellConfig *bigPhoto = [JHCellConfig cellConfigWithClassName:NSStringFromClass([BigPhotoCell class]) title:@"大图" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfBigPhoto];
-        
-        // 购买信息
-        JHCellConfig *buyInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([BuyInfoCell class]) title:@"购买信息" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfBuyInfo];
-        
-        [_dataArray addObject:@[bigPhoto, buyInfo]];
-        
-        // 评论
-        // 要恢复显示这种cell，将下面的代码取消注释，即可。反之，要不显示某种cell，注释即可。其他cell同理
-        
-        JHCellConfig *commentInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([CommentCell class]) title:@"评论" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfComment];
-        
-        [_dataArray addObject:@[commentInfo]];
-        
-        // 商家信息
-        JHCellConfig *sellerInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([SellerInfoCell class]) title:@"商家信息" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfSellerInfo];
-        [_dataArray addObject:@[sellerInfo]];
-    }
-    return _dataArray;
+    // 二维数组作为tableView的结构数据源
+    // 改变不同类型cell的顺序、增删时，只需在此修改即可，无需在多个tableView代理方法中逐个修改
+    
+    // 大图
+//    JHCellConfig *bigPhoto = [JHCellConfig cellConfigWithClassName:NSStringFromClass([BigPhotoCell class]) title:@"大图" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfBigPhoto];
+//    
+//    // 购买信息
+//    JHCellConfig *buyInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([BuyInfoCell class]) title:@"购买信息" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfBuyInfo];
+//    
+//    [self.dataArray addObject:@[bigPhoto, buyInfo]];
+//    
+//    // 评论
+//    // 要恢复显示这种cell，将下面的代码取消注释，即可。反之，要不显示某种cell，注释即可。其他cell同理
+//    
+//    JHCellConfig *commentInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([CommentCell class]) title:@"评论" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfComment];
+//    
+//    [self.dataArray addObject:@[commentInfo]];
+//    
+//    // 商家信息
+//    JHCellConfig *sellerInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([SellerInfoCell class]) title:@"商家信息" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfSellerInfo];
+//    [self.dataArray addObject:@[sellerInfo]];
 }
 
-- (Model *)modelToShow
-{
-    if (!_modelToShow) {
-        _modelToShow = [Model new];
-        // 假数据
-        for (int i = 1; i < 5; i++) {
-            NSString *key = [NSString stringWithFormat:@"imageName%d",i];
-            NSString *value = [NSString stringWithFormat:@"cell_%02d",i];
-            
-            [_modelToShow setValue:value forKey:key];
-        }
-    }
-    return _modelToShow;
-}
+
 
 #pragma mark - VC lifecycle
 - (void)viewDidLoad
@@ -131,7 +95,7 @@
     JHCellConfig *cellConfig = self.dataArray[indexPath.section][indexPath.row];
     
     // 拿到对应cell并根据模型显示
-    UITableViewCell *cell = [cellConfig cellOfCellConfigWithTableView:tableView dataModel:self.modelToShow];
+    UITableViewCell *cell;// = [cellConfig cellOfCellConfigWithTableView:tableView dataModel:self.modelToShow];
     
     return cell;
 }
@@ -169,23 +133,21 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    JHCellConfig *cellConfig = self.dataArray[indexPath.section][indexPath.row];
-    
-    return cellConfig.heightOfCell;
-}
+#pragma mark - 懒加载
 
-#pragma mark Header
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (Model *)modelToShow
 {
-    return nil;
+    if (!_modelToShow) {
+        _modelToShow = [Model new];
+        // 假数据
+        for (int i = 1; i < 5; i++) {
+            NSString *key = [NSString stringWithFormat:@"imageName%d",i];
+            NSString *value = [NSString stringWithFormat:@"cell_%02d",i];
+            
+            [_modelToShow setValue:value forKey:key];
+        }
+    }
+    return _modelToShow;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0.001;
-}
-
 
 @end

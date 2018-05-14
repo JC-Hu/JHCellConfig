@@ -10,17 +10,6 @@
 
 @implementation SellerInfoCell
 
-#pragma mark - 懒加载
-// 注意，使用懒加载时，调用属性最好用self.,因为第一次调用一定要用self.
-- (UIImageView *)mainImageView
-{
-    if (!_mainImageView) {
-        _mainImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        [self.contentView addSubview:_mainImageView];
-    }
-    return _mainImageView;
-}
-
 #pragma mark - 布局
 - (void)layoutSubviews
 {
@@ -36,6 +25,17 @@
     self.mainImageView.image = [UIImage imageNamed:model.imageName4];
     
     [self layoutSubviews];
+}
+
+#pragma mark - 懒加载
+// 注意，使用懒加载时，调用属性最好用self.,因为第一次调用一定要用self.
+- (UIImageView *)mainImageView
+{
+    if (!_mainImageView) {
+        _mainImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        [self.contentView addSubview:_mainImageView];
+    }
+    return _mainImageView;
 }
 
 @end

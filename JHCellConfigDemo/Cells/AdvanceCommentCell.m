@@ -19,6 +19,55 @@
 
 @implementation AdvanceCommentCell
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.userNameButton.frame = CGRectMake(kSpace, kSpace, 50, 20);
+    
+    
+    CGFloat height = [[self class] HeightForText:self.contentLabel.text];
+
+    self.contentLabel.frame = CGRectMake(self.userNameButton.left, self.userNameButton.bottom + kSpace/2, kWidthOfContent, height);
+    
+}
+
+/// 根据数据模型来显示内容
+- (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig
+{
+    Comment *comment = cellConfig.dataModel;
+    
+    [self.userNameButton setTitle:comment.userName forState:UIControlStateNormal];
+    
+    self.contentLabel.text = comment.content;
+    
+    [self layoutSubviews];
+}
+
++ (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig
+{
+    Comment *comment = cellConfig.dataModel;
+
+    // 固定高度
+    CGFloat fixedHeight = kMinHeightOfAdvanceComment - kHeightMinOfContent;
+    CGFloat changeHeight = [self HeightForText:comment.content];
+    
+    if (changeHeight < kHeightMinOfContent) {
+        changeHeight = kHeightMinOfContent;
+    }
+    
+    return fixedHeight + changeHeight;
+}
+
+/// 计算内容文本的高度方法
++ (CGFloat)HeightForText:(NSString *)text
+{
+    NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:kSizeOfLabelFont]};
+    CGSize size = CGSizeMake(kWidthOfContent, 2000);
+    CGRect frame = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
+    return frame.size.height;
+}
+
 - (UIButton *)userNameButton
 {
     if (!_userNameButton) {
@@ -39,59 +88,10 @@
         _contentLabel.textColor = [UIColor grayColor];
         _contentLabel.numberOfLines = 0;
         _contentLabel.font = [UIFont systemFontOfSize:kSizeOfLabelFont];
-    
+        
     }
     return _contentLabel;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    self.userNameButton.frame = CGRectMake(kSpace, kSpace, 50, 20);
-    
-    
-    CGFloat height = [[self class] HeightForText:self.contentLabel.text];
 
-    self.contentLabel.frame = CGRectMake(self.userNameButton.left, self.userNameButton.bottom + kSpace/2, kWidthOfContent, height);
-    
-}
-
-/// 根据数据模型来显示内容
-- (void)showCommentInfo:(Comment *)comment
-{
-//    self.textLabel.text = comment.userName;
-    
-    [self.userNameButton setTitle:comment.userName forState:UIControlStateNormal];
-    
-    self.contentLabel.text = comment.content;
-    
-    [self layoutSubviews];
-}
-
-/// 返回Cell高度
-+ (CGFloat)returnCellHeight:(Comment *)comment
-{
-    // 固定高度
-    CGFloat fixedHeight = kMinHeightOfAdvanceComment - kHeightMinOfContent;
-    CGFloat changeHeight = [self HeightForText:comment.content];
-//        if (comment.photos.count != 0) {
-//            fixedHeight = 77.0;
-//        } else {
-    if (changeHeight < kHeightMinOfContent) {
-        changeHeight = kHeightMinOfContent;
-    }
-//        }
-
-    return fixedHeight + changeHeight;
-}
-
-/// 计算内容文本的高度方法
-+ (CGFloat)HeightForText:(NSString *)text
-{
-    NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:kSizeOfLabelFont]};
-    CGSize size = CGSizeMake(kWidthOfContent, 2000);
-    CGRect frame = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
-    return frame.size.height;
-}
 @end

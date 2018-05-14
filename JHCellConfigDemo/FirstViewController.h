@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 JCHu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JHBaseTableViewController.h"
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : JHBaseTableViewController
 
 
 @end
