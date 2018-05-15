@@ -91,6 +91,14 @@
     return [cellConfig cellHeight];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    JHCellConfig *cellConfig = [self cellConfigOfIndexPath:indexPath];
+    if (cellConfig.selectBlock) {
+        cellConfig.selectBlock(cellConfig, [tableView cellForRowAtIndexPath:indexPath]);
+    }
+}
+
 #pragma mark -
 - (JHCellConfig *)cellConfigOfIndexPath:(NSIndexPath *)indexPath
 {

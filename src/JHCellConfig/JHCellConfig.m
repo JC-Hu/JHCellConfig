@@ -22,6 +22,14 @@
                                   title:(NSString *)title
                               dataModel:(id)dataModel
 {
+    return [self cellConfigWithCellClass:cellClass title:title dataModel:dataModel selectBlock:nil];
+}
+
++ (instancetype)cellConfigWithCellClass:(Class)cellClass
+                                  title:(NSString *)title
+                              dataModel:(id)dataModel
+                            selectBlock:(JHCellSelectBlock)selectBlock
+{
     JHCellConfig *cellConfig = [JHCellConfig new];
     
     cellConfig.className = NSStringFromClass(cellClass);
@@ -29,6 +37,7 @@
     cellConfig.updateContentMethod = @selector(updateContentWithCellConfig:);
     cellConfig.cellHeightMethod = @selector(cellHeightWithCellConfig:);
     cellConfig.dataModel = dataModel;
+    cellConfig.selectBlock = selectBlock;
     
     return cellConfig;
 }
@@ -116,7 +125,7 @@
 
 #pragma mark - Assist
 /// 根据类名，快捷注册cell
-- (void)registerForTableView:(UITableView *)tableView
+- (void)registerNibForTableView:(UITableView *)tableView
 {
     [tableView registerNib:[UINib nibWithNibName:self.className bundle:nil] forCellReuseIdentifier:[self cellID]];
 }

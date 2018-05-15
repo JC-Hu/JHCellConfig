@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @class JHCellConfig;
+typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell *selectCell);
 
 @protocol JHCellConfigProtocol <NSObject>
 
@@ -40,8 +41,14 @@
 /// cell类名
 @property (nonatomic, strong) NSString *className;
 
+/// 指定重用ID，不赋值则使用类名
+@property (nonatomic, strong) NSString *reuseID;
+
 /// 标题 - 如“我的订单”，对不同种cell进行不同设置时，可以通过 其对应的 cellConfig.title 进行判断
 @property (nonatomic, strong) NSString *title;
+
+/// 业务数据模型
+@property (nonatomic, strong) id dataModel;
 
 /// 显示数据模型的方法
 @property (nonatomic, assign) SEL updateContentMethod;
@@ -53,19 +60,23 @@
 /// 高度缓存
 @property (nonatomic, assign) CGFloat cachedHeight;
 
-/// 指定重用ID，不赋值则使用类名
-@property (nonatomic, strong) NSString *reuseID;
+@property (nonatomic, copy) JHCellSelectBlock selectBlock;
 
-/// 具体业务数据模型
-@property (nonatomic, strong) id dataModel;
 
 
 #pragma mark - Core
 
-+ (instancetype)cellConfigWithCellClass:(Class)cellClass dataModel:(id)dataModel;
++ (instancetype)cellConfigWithCellClass:(Class)cellClass
+                              dataModel:(id)dataModel;
+
 + (instancetype)cellConfigWithCellClass:(Class)cellClass
                                   title:(NSString *)title
                               dataModel:(id)dataModel;
+
++ (instancetype)cellConfigWithCellClass:(Class)cellClass
+                                  title:(NSString *)title
+                              dataModel:(id)dataModel
+                            selectBlock:(JHCellSelectBlock)selectBlock;
 
 /// 根据cellConfig生成cell，重用ID为cell类名
 - (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView;
@@ -80,6 +91,6 @@
 
 #pragma mark - Assist
 /// 根据类名，快捷注册cell
-- (void)registerForTableView:(UITableView *)tableView;
+- (void)registerNibForTableView:(UITableView *)tableView;
 
 @end
