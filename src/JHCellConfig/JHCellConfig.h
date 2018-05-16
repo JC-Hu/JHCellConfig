@@ -41,12 +41,6 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 /// cell类名
 @property (nonatomic, strong) NSString *className;
 
-/// 指定重用ID，不赋值则使用类名
-@property (nonatomic, strong) NSString *reuseID;
-
-/// 标题 - 如“我的订单”，对不同种cell进行不同设置时，可以通过 其对应的 cellConfig.title 进行判断
-@property (nonatomic, strong) NSString *title;
-
 /// 业务数据模型
 @property (nonatomic, strong) id dataModel;
 
@@ -60,8 +54,14 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 /// 高度缓存
 @property (nonatomic, assign) CGFloat cachedHeight;
 
+/// 点击回调 JHCellConfig只做存储，须在代理方法中调用此block（可在你的基类中统一处理）
 @property (nonatomic, copy) JHCellSelectBlock selectBlock;
 
+/// #可选# 标题 - 如“我的订单”，对不同种cell进行不同设置时，可以通过 其对应的 cellConfig.title 进行判断
+@property (nonatomic, strong) NSString *title;
+
+/// #可选# 指定重用ID，不赋值则使用类名
+@property (nonatomic, strong) NSString *reuseID;
 
 
 #pragma mark - Core
