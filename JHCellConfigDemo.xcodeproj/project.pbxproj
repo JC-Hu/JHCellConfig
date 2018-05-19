@@ -28,9 +28,7 @@
 		04BA824D1A9DF5E7004EE5C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BA824B1A9DF5E7004EE5C6 /* Main.storyboard */; };
 		04BA824F1A9DF5E7004EE5C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BA824E1A9DF5E7004EE5C6 /* Images.xcassets */; };
 		04BA82521A9DF5E7004EE5C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA82501A9DF5E7004EE5C6 /* LaunchScreen.xib */; };
-		9D24354C208A1BC1008E9162 /* JHBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24354B208A1BC1008E9162 /* JHBaseTableViewController.m */; };
 		9D24354F208AE3BF008E9162 /* DetailDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24354E208AE3BF008E9162 /* DetailDemoViewController.m */; };
-		9D243552208AE8A8008E9162 /* JHBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D243551208AE8A8008E9162 /* JHBaseCell.m */; };
 		9D24356E208AE959008E9162 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D243555208AE958008E9162 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		9D24356F208AE959008E9162 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24355E208AE958008E9162 /* ViewController+MASAdditions.m */; };
 		9D243570208AE959008E9162 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D243562208AE958008E9162 /* MASCompositeConstraint.m */; };
@@ -44,6 +42,8 @@
 		9D243578208AE959008E9162 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D24356D208AE958008E9162 /* Info.plist */; };
 		9D24357B208AEC7E008E9162 /* DemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24357A208AEC7E008E9162 /* DemoCell.m */; };
 		9D24357E208DD0FE008E9162 /* ListDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24357D208DD0FE008E9162 /* ListDemoViewController.m */; };
+		9D34948C20B0123800AEBB71 /* JHBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34948820B0123700AEBB71 /* JHBaseTableViewController.m */; };
+		9D34948D20B0123800AEBB71 /* JHBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34948B20B0123700AEBB71 /* JHBaseCell.m */; };
 		9DBF803420A96A76001ABD8C /* JHCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBF803320A96A76001ABD8C /* JHCellConfig.m */; };
 /* End PBXBuildFile section */
 
@@ -84,12 +84,8 @@
 		04BA824C1A9DF5E7004EE5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04BA824E1A9DF5E7004EE5C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04BA82511A9DF5E7004EE5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9D24354A208A1BC1008E9162 /* JHBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseTableViewController.h; sourceTree = "<group>"; };
-		9D24354B208A1BC1008E9162 /* JHBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseTableViewController.m; sourceTree = "<group>"; };
 		9D24354D208AE3BF008E9162 /* DetailDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailDemoViewController.h; sourceTree = "<group>"; };
 		9D24354E208AE3BF008E9162 /* DetailDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailDemoViewController.m; sourceTree = "<group>"; };
-		9D243550208AE8A8008E9162 /* JHBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseCell.h; sourceTree = "<group>"; };
-		9D243551208AE8A8008E9162 /* JHBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseCell.m; sourceTree = "<group>"; };
 		9D243554208AE958008E9162 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		9D243555208AE958008E9162 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		9D243556208AE958008E9162 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -120,6 +116,10 @@
 		9D24357A208AEC7E008E9162 /* DemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCell.m; sourceTree = "<group>"; };
 		9D24357C208DD0FE008E9162 /* ListDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListDemoViewController.h; sourceTree = "<group>"; };
 		9D24357D208DD0FE008E9162 /* ListDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListDemoViewController.m; sourceTree = "<group>"; };
+		9D34948820B0123700AEBB71 /* JHBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseTableViewController.m; sourceTree = "<group>"; };
+		9D34948920B0123700AEBB71 /* JHBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseCell.h; sourceTree = "<group>"; };
+		9D34948A20B0123700AEBB71 /* JHBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseTableViewController.h; sourceTree = "<group>"; };
+		9D34948B20B0123700AEBB71 /* JHBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseCell.m; sourceTree = "<group>"; };
 		9DBF803220A96A76001ABD8C /* JHCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCellConfig.h; sourceTree = "<group>"; };
 		9DBF803320A96A76001ABD8C /* JHCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCellConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,10 +206,7 @@
 			children = (
 				9DBF803120A96A76001ABD8C /* JHCellConfig */,
 				04B8BC341AADDB0A006FACEA /* Macro.h */,
-				9D24354A208A1BC1008E9162 /* JHBaseTableViewController.h */,
-				9D24354B208A1BC1008E9162 /* JHBaseTableViewController.m */,
-				9D243550208AE8A8008E9162 /* JHBaseCell.h */,
-				9D243551208AE8A8008E9162 /* JHBaseCell.m */,
+				9D34948720B0123700AEBB71 /* BaseClass */,
 				9D24357C208DD0FE008E9162 /* ListDemoViewController.h */,
 				9D24357D208DD0FE008E9162 /* ListDemoViewController.m */,
 				9D24354D208AE3BF008E9162 /* DetailDemoViewController.h */,
@@ -276,6 +273,17 @@
 				9D24356D208AE958008E9162 /* Info.plist */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		9D34948720B0123700AEBB71 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				9D34948A20B0123700AEBB71 /* JHBaseTableViewController.h */,
+				9D34948820B0123700AEBB71 /* JHBaseTableViewController.m */,
+				9D34948920B0123700AEBB71 /* JHBaseCell.h */,
+				9D34948B20B0123700AEBB71 /* JHBaseCell.m */,
+			);
+			path = BaseClass;
 			sourceTree = "<group>";
 		};
 		9DBF803120A96A76001ABD8C /* JHCellConfig */ = {
@@ -366,15 +374,15 @@
 			files = (
 				04BA824A1A9DF5E7004EE5C6 /* SecondViewController.m in Sources */,
 				04BA82441A9DF5E7004EE5C6 /* AppDelegate.m in Sources */,
+				9D34948D20B0123800AEBB71 /* JHBaseCell.m in Sources */,
 				04B8BC291AADD64A006FACEA /* BuyInfoCell.m in Sources */,
 				9D243570208AE959008E9162 /* MASCompositeConstraint.m in Sources */,
-				9D24354C208A1BC1008E9162 /* JHBaseTableViewController.m in Sources */,
+				9D34948C20B0123800AEBB71 /* JHBaseTableViewController.m in Sources */,
 				04B8BC2A1AADD64A006FACEA /* CommentCell.m in Sources */,
 				0423AC341ABD9BA900DA3430 /* AdvanceCommentCell.m in Sources */,
 				0423AC381AC1005A00DA3430 /* UIView+Shortcut.m in Sources */,
 				9D243575208AE959008E9162 /* MASConstraint.m in Sources */,
 				9D24357B208AEC7E008E9162 /* DemoCell.m in Sources */,
-				9D243552208AE8A8008E9162 /* JHBaseCell.m in Sources */,
 				04BA82471A9DF5E7004EE5C6 /* FirstViewController.m in Sources */,
 				9DBF803420A96A76001ABD8C /* JHCellConfig.m in Sources */,
 				9D24356F208AE959008E9162 /* ViewController+MASAdditions.m in Sources */,
