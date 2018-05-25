@@ -45,20 +45,13 @@
 /// 根据cellConfig生成cell，重用ID为cell类名
 - (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView
 {
-    return [self cellOfCellConfigWithTableView:tableView isNib:NO];
-}
-
-/// 根据cellConfig生成cell，重用ID为cell类名,可使用Nib
-- (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView
-                                             isNib:(BOOL)isNib
-{
     Class cellClass = NSClassFromString(self.className);
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellID]];
     
     if (!cell) {
         // 加入使用nib的方法
-        if (isNib && self.className.length &&![self.className isEqualToString:@"UITableViewCell"]) {
+        if (self.isNib && self.className.length &&![self.className isEqualToString:@"UITableViewCell"]) {
             NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:self.className owner:nil options:nil];
             
             for (id obj in nibs) {
@@ -121,6 +114,12 @@
         return self.cachedHeight;
     }
     return self.cachedHeight;
+}
+
+- (JHCellConfig *)useNib
+{
+    self.isNib = YES;
+    return self;
 }
 
 #pragma mark - Assist
