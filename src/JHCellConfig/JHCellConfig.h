@@ -26,16 +26,13 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 
 @interface JHCellConfig : NSObject
 
-#warning 请仔细阅读注释
 /**
- 
- #本类相当于将tableView中cell所需的基本信息存储下来，||以便放到数组中管理||
+ #本类相当于将tableView中cell所需的基本信息存储下来，以便放到数组中管理
  #每个CellConfig实例与tableView中想要显示的cell相对应。（但注意，是“想要显示的”cell，由于cell的重用，实际上cell并不会生成那么多）
  
  改变不同类型cell的顺序、增删时，极为方便，
- 只需改变VC中数据源数组即可，
+ 只需操作数据源数组即可，
  无需在多个tableView代理方法中逐个修改
- 
  */
 
 /// cell类名

@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
     self.commentDataArray = [self generateFakeCommentArray];
     
     [self updateDataArray];

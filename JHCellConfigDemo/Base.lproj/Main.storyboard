@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--“高级使用”-->
+        <!--Navigation Controller-->
         <scene sceneID="n8o-o5-tzy">
             <objects>
                 <navigationController id="weR-Fu-kfW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="“高级使用”" id="Lsy-q4-0nA"/>
+                    <tabBarItem key="tabBarItem" title="" id="Lsy-q4-0nA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a9p-Wu-ACa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-364"/>
         </scene>
-        <!--Detail Demo View Controller-->
+        <!--List-->
         <scene sceneID="XcG-73-aSc">
             <objects>
-                <viewController id="OoB-7j-hmZ" customClass="DetailDemoViewController" sceneMemberID="viewController">
+                <viewController title="List" id="OoB-7j-hmZ" customClass="ListDemoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dm6-72-LG0"/>
                         <viewControllerLayoutGuide type="bottom" id="kyp-f0-5rO"/>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="1468" y="-364"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Detail-->
         <scene sceneID="VK9-tw-IZU">
             <objects>
-                <viewController id="UVh-yY-p7F" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="Detail" id="UVh-yY-p7F" customClass="DetailDemoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hgl-af-L0B"/>
                         <viewControllerLayoutGuide type="bottom" id="IL3-tR-IO9"/>

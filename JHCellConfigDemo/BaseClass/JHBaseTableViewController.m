@@ -33,7 +33,7 @@
 
 - (UITableViewStyle)getTableStyle
 {
-    return UITableViewStylePlain;
+    return UITableViewStyleGrouped;
 }
 
 - (UITableViewCellSeparatorStyle)getSeparatorStyle
@@ -54,20 +54,31 @@
 #pragma mark - TableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.dataArray.count;
+    if (![self isTwoDimensionalDataArray]) {
+        if (self.dataArray.count) {
+            return 1;
+        } else {
+            return 0;
+        }
+    } else {
+        return self.dataArray.count;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.dataArray.count > section) {
-        id object = self.dataArray[section];
+    if (![self isTwoDimensionalDataArray]) {
         
-        if ([object respondsToSelector:@selector(count)]) {
-            return [object count];
+        return self.dataArray.count;
+    } else {
+        if (self.dataArray.count > section) {
+            id object = self.dataArray[section];
+            
+            if ([object respondsToSelector:@selector(count)]) {
+                return [object count];
+            }
         }
     }
-    NSLog(@"%s - %s, Unexpected, Line %d",__FILE__, __FUNCTION__, __LINE__);
-    
     return 0;
 }
 
@@ -75,7 +86,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 拿到cellConfig
-    JHCellConfig *cellConfig = self.dataArray[indexPath.section][indexPath.row];
+    JHCellConfig *cellConfig = [self cellConfigOfIndexPath:indexPath];
     
     // 拿到对应cell并根据模型显示
     UITableViewCell *cell = [cellConfig cellOfCellConfigWithTableView:tableView];
@@ -99,19 +110,44 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
 #pragma mark -
 - (JHCellConfig *)cellConfigOfIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger section = indexPath.section;
-    if (self.dataArray.count > section) {
+    if (![self isTwoDimensionalDataArray]) {
         
-        id object = self.dataArray[section];
-        
-        if ([object isKindOfClass:[NSArray class]] && [object count] > indexPath.row) {
-            return object[indexPath.row];
+        if (self.dataArray.count > indexPath.row) {
+            return self.dataArray[indexPath.row];
+        }
+    } else {
+        NSInteger section = indexPath.section;
+        if (self.dataArray.count > section) {
+            
+            id object = self.dataArray[section];
+            
+            if ([object isKindOfClass:[NSArray class]] && [object count] > indexPath.row) {
+                return object[indexPath.row];
+            }
         }
     }
     return nil;
+}
+
+- (BOOL)isTwoDimensionalDataArray
+{
+    if (self.dataArray.firstObject && [self.dataArray.firstObject isKindOfClass:[NSArray class]]) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Lazy Init

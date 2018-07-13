@@ -205,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				9DBF803120A96A76001ABD8C /* JHCellConfig */,
-				04B8BC341AADDB0A006FACEA /* Macro.h */,
 				9D34948720B0123700AEBB71 /* BaseClass */,
 				9D24357C208DD0FE008E9162 /* ListDemoViewController.h */,
 				9D24357D208DD0FE008E9162 /* ListDemoViewController.m */,
@@ -223,6 +222,7 @@
 				04B8BC351AADDCC3006FACEA /* Images */,
 				0423AC351AC1005A00DA3430 /* UIView+Shortcut */,
 				9D243553208AE958008E9162 /* Masonry */,
+				04B8BC341AADDB0A006FACEA /* Macro.h */,
 				04BA824B1A9DF5E7004EE5C6 /* Main.storyboard */,
 				04BA823E1A9DF5E7004EE5C6 /* Supporting Files */,
 			);

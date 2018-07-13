@@ -11,6 +11,7 @@
 #import "AdvanceCommentCell.h"
 
 #import "DetailDemoViewController.h"
+#import "GeneralDetailViewController.h"
 
 @interface ListDemoViewController ()
 
@@ -24,9 +25,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    // 获取数据
     self.commentDataArray = [self generateFakeCommentArray];
     
+    // 生成CellConfig
     [self updateDataArray];
+    
 }
 
 
@@ -34,29 +39,29 @@
 {
     [self.dataArray removeAllObjects];
     
-    NSMutableArray *commentCellConfigArray = [NSMutableArray array];
     for (int i = 0; i < self.commentDataArray.count; i++) {
-        JHCellConfig *cellConfig = [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class] dataModel:self.commentDataArray[i]];
+        JHCellConfig *cellConfig =
+        [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class]
+                                        title:nil
+                                    dataModel:self.commentDataArray[i]
+                                  selectBlock:^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell)
+        {
+            // 点击事件
+            Comment *comment = self.commentDataArray[i];
+            
+            GeneralDetailViewController *detailVC = [GeneralDetailViewController new];
+            detailVC.title = [comment.userName stringByAppendingString:@" 的评论详情"];
+            
+            [self.navigationController pushViewController:detailVC animated:YES];
+            
+        }];
         
-        [commentCellConfigArray addObject:cellConfig];
+        [self.dataArray addObject:cellConfig];
     }
-    
-    [self.dataArray addObject:commentCellConfigArray];
-    
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    JHCellConfig *cellConfig = [self cellConfigOfIndexPath:indexPath];
-    
-    Comment *comment = cellConfig.dataModel;
-    
-    [self.navigationController pushViewController:[DetailDemoViewController new] animated:YES];
-}
-
-
-#pragma mark - 评论假数据生成
-/// 生成评论数据数组
+#pragma mark - 
+/// 生成假数据数组
 - (NSMutableArray *)generateFakeCommentArray
 {
     NSMutableArray *array = [NSMutableArray array];
@@ -96,7 +101,7 @@
 
 
 
-
+#pragma mark - Lazy init
 - (NSArray *)commentDataArray
 {
     if (!_commentDataArray) {
