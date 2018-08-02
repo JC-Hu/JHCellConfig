@@ -68,6 +68,11 @@
         }
     }
     
+    // bind
+    if ([cell conformsToProtocol:@protocol(JHCellConfigProtocol)]) {
+        [((id <JHCellConfigProtocol>)cell) setCellConfig:self];
+    }
+    
     // 更新cell界面
     if (self.updateContentMethod && [cell respondsToSelector:self.updateContentMethod]) {
         
@@ -77,9 +82,7 @@
 #pragma clang diagnostic pop
     }
     
-    if ([cell conformsToProtocol:@protocol(JHCellConfigProtocol)]) {
-        ((id <JHCellConfigProtocol>)cell).cellConfig = self;
-    }
+    
     return cell;
 }
 

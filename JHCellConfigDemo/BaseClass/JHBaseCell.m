@@ -12,8 +12,6 @@
 
 @implementation JHBaseCell
 
-@synthesize cellConfig;
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -33,6 +31,7 @@
 {
     
 }
+
 
 
 @end

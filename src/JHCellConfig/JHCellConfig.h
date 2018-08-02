@@ -14,12 +14,10 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 
 @protocol JHCellConfigProtocol <NSObject>
 
-@property (nonatomic, strong) JHCellConfig *cellConfig;
-
-- (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig;
-
 @optional
+- (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig;
 + (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig;
+- (void)setCellConfig:(JHCellConfig *)cellConfig;
 
 @end
 
