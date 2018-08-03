@@ -17,4 +17,7 @@
 
 @property (nonatomic, strong) JHCellConfig *cellConfig;
 
+- (void)setupViews;
+- (void)setupConstraints;
+
 @end

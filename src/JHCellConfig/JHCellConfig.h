@@ -17,6 +17,8 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 @optional
 - (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig;
 + (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig;
+
+// 会在生成cell时调用，即cellOfCellConfigWithTableView:方法
 - (void)setCellConfig:(JHCellConfig *)cellConfig;
 
 @end
@@ -54,7 +56,7 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 @property (nonatomic, assign) CGFloat constantHeight;
 /// 高度缓存
 @property (nonatomic, assign) CGFloat cachedHeight;
-
+/// tableView didSelectCell时调用
 @property (nonatomic, copy) JHCellSelectBlock selectBlock;
 
 @property (nonatomic, assign) BOOL isNib;
@@ -81,10 +83,9 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 
 /// 获取cell高度
 - (CGFloat)cellHeight;
+/// 使用xib，须在生成cell前调用
 - (JHCellConfig *)useNib;
-
-#pragma mark - Assist
 /// 根据类名，快捷注册cell
-- (void)registerNibForTableView:(UITableView *)tableView;
+- (JHCellConfig *)registerNib:(UITableView *)tableView;
 
 @end

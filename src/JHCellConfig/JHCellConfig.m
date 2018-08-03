@@ -119,19 +119,6 @@
     return self.cachedHeight;
 }
 
-- (JHCellConfig *)useNib
-{
-    self.isNib = YES;
-    return self;
-}
-
-#pragma mark - Assist
-/// 根据类名，快捷注册cell
-- (void)registerNibForTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:self.className bundle:nil] forCellReuseIdentifier:[self cellID]];
-}
-
 - (NSString *)cellID
 {
     if (self.reuseID.length) {
@@ -139,5 +126,20 @@
     }
     return self.className;
 }
+
+
+- (JHCellConfig *)useNib
+{
+    self.isNib = YES;
+    return self;
+}
+
+- (JHCellConfig *)registerNib:(UITableView *)tableView
+{
+    [tableView registerNib:[UINib nibWithNibName:self.className bundle:nil] forCellReuseIdentifier:[self cellID]];
+    return self;
+}
+
+
 
 @end

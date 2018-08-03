@@ -40,10 +40,10 @@
 		9D243576208AE959008E9162 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24356B208AE958008E9162 /* MASViewConstraint.m */; };
 		9D243577208AE959008E9162 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24356C208AE958008E9162 /* MASViewAttribute.m */; };
 		9D243578208AE959008E9162 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D24356D208AE958008E9162 /* Info.plist */; };
-		9D24357B208AEC7E008E9162 /* DemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24357A208AEC7E008E9162 /* DemoCell.m */; };
 		9D24357E208DD0FE008E9162 /* ListDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24357D208DD0FE008E9162 /* ListDemoViewController.m */; };
 		9D34948C20B0123800AEBB71 /* JHBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34948820B0123700AEBB71 /* JHBaseTableViewController.m */; };
 		9D34948D20B0123800AEBB71 /* JHBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34948B20B0123700AEBB71 /* JHBaseCell.m */; };
+		9D36A536211424210021ECD1 /* JHCellConfig.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D36A535211424200021ECD1 /* JHCellConfig.podspec */; };
 		9DBF803420A96A76001ABD8C /* JHCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBF803320A96A76001ABD8C /* JHCellConfig.m */; };
 /* End PBXBuildFile section */
 
@@ -112,14 +112,13 @@
 		9D24356B208AE958008E9162 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		9D24356C208AE958008E9162 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
 		9D24356D208AE958008E9162 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D243579208AEC7E008E9162 /* DemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCell.h; sourceTree = "<group>"; };
-		9D24357A208AEC7E008E9162 /* DemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCell.m; sourceTree = "<group>"; };
 		9D24357C208DD0FE008E9162 /* ListDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListDemoViewController.h; sourceTree = "<group>"; };
 		9D24357D208DD0FE008E9162 /* ListDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListDemoViewController.m; sourceTree = "<group>"; };
 		9D34948820B0123700AEBB71 /* JHBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseTableViewController.m; sourceTree = "<group>"; };
 		9D34948920B0123700AEBB71 /* JHBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseCell.h; sourceTree = "<group>"; };
 		9D34948A20B0123700AEBB71 /* JHBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseTableViewController.h; sourceTree = "<group>"; };
 		9D34948B20B0123700AEBB71 /* JHBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseCell.m; sourceTree = "<group>"; };
+		9D36A535211424200021ECD1 /* JHCellConfig.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JHCellConfig.podspec; sourceTree = SOURCE_ROOT; };
 		9DBF803220A96A76001ABD8C /* JHCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCellConfig.h; sourceTree = "<group>"; };
 		9DBF803320A96A76001ABD8C /* JHCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCellConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,8 +156,6 @@
 				04B8BC311AADD900006FACEA /* SellerInfoCell.m */,
 				0423AC321ABD9BA900DA3430 /* AdvanceCommentCell.h */,
 				0423AC331ABD9BA900DA3430 /* AdvanceCommentCell.m */,
-				9D243579208AEC7E008E9162 /* DemoCell.h */,
-				9D24357A208AEC7E008E9162 /* DemoCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -204,6 +201,7 @@
 		04BA823D1A9DF5E7004EE5C6 /* JHCellConfigDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9D36A535211424200021ECD1 /* JHCellConfig.podspec */,
 				9DBF803120A96A76001ABD8C /* JHCellConfig */,
 				9D34948720B0123700AEBB71 /* BaseClass */,
 				9D24357C208DD0FE008E9162 /* ListDemoViewController.h */,
@@ -245,32 +243,32 @@
 		9D243553208AE958008E9162 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
+				9D24356D208AE958008E9162 /* Info.plist */,
 				9D243554208AE958008E9162 /* MASCompositeConstraint.h */,
-				9D243555208AE958008E9162 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				9D243562208AE958008E9162 /* MASCompositeConstraint.m */,
+				9D243560208AE958008E9162 /* MASConstraint.h */,
+				9D243569208AE958008E9162 /* MASConstraint.m */,
 				9D243556208AE958008E9162 /* MASConstraint+Private.h */,
-				9D243557208AE958008E9162 /* MASLayoutConstraint.h */,
-				9D243558208AE958008E9162 /* NSArray+MASShorthandAdditions.h */,
 				9D243559208AE958008E9162 /* MASConstraintMaker.h */,
-				9D24355A208AE958008E9162 /* View+MASAdditions.h */,
-				9D24355B208AE958008E9162 /* NSArray+MASAdditions.h */,
+				9D243563208AE958008E9162 /* MASConstraintMaker.m */,
+				9D243557208AE958008E9162 /* MASLayoutConstraint.h */,
+				9D243564208AE958008E9162 /* MASLayoutConstraint.m */,
+				9D243568208AE958008E9162 /* Masonry.h */,
 				9D24355C208AE958008E9162 /* MASUtilities.h */,
 				9D24355D208AE958008E9162 /* MASViewAttribute.h */,
-				9D24355E208AE958008E9162 /* ViewController+MASAdditions.m */,
+				9D24356C208AE958008E9162 /* MASViewAttribute.m */,
 				9D24355F208AE958008E9162 /* MASViewConstraint.h */,
-				9D243560208AE958008E9162 /* MASConstraint.h */,
-				9D243561208AE958008E9162 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				9D243562208AE958008E9162 /* MASCompositeConstraint.m */,
-				9D243563208AE958008E9162 /* MASConstraintMaker.m */,
-				9D243564208AE958008E9162 /* MASLayoutConstraint.m */,
+				9D24356B208AE958008E9162 /* MASViewConstraint.m */,
+				9D24355B208AE958008E9162 /* NSArray+MASAdditions.h */,
 				9D243565208AE958008E9162 /* NSArray+MASAdditions.m */,
+				9D243558208AE958008E9162 /* NSArray+MASShorthandAdditions.h */,
+				9D243561208AE958008E9162 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				9D243555208AE958008E9162 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				9D24355A208AE958008E9162 /* View+MASAdditions.h */,
 				9D243566208AE958008E9162 /* View+MASAdditions.m */,
 				9D243567208AE958008E9162 /* View+MASShorthandAdditions.h */,
-				9D243568208AE958008E9162 /* Masonry.h */,
-				9D243569208AE958008E9162 /* MASConstraint.m */,
 				9D24356A208AE958008E9162 /* ViewController+MASAdditions.h */,
-				9D24356B208AE958008E9162 /* MASViewConstraint.m */,
-				9D24356C208AE958008E9162 /* MASViewAttribute.m */,
-				9D24356D208AE958008E9162 /* Info.plist */,
+				9D24355E208AE958008E9162 /* ViewController+MASAdditions.m */,
 			);
 			path = Masonry;
 			sourceTree = "<group>";
@@ -355,6 +353,7 @@
 			files = (
 				04276D981AB7BDFC0069DCDB /* GeneralDetailViewController.xib in Resources */,
 				04BA824D1A9DF5E7004EE5C6 /* Main.storyboard in Resources */,
+				9D36A536211424210021ECD1 /* JHCellConfig.podspec in Resources */,
 				9D243578208AE959008E9162 /* Info.plist in Resources */,
 				04BA82521A9DF5E7004EE5C6 /* LaunchScreen.xib in Resources */,
 				04B8BC3D1AADDCC3006FACEA /* cell_04.png in Resources */,
@@ -382,7 +381,6 @@
 				0423AC341ABD9BA900DA3430 /* AdvanceCommentCell.m in Sources */,
 				0423AC381AC1005A00DA3430 /* UIView+Shortcut.m in Sources */,
 				9D243575208AE959008E9162 /* MASConstraint.m in Sources */,
-				9D24357B208AEC7E008E9162 /* DemoCell.m in Sources */,
 				04BA82471A9DF5E7004EE5C6 /* FirstViewController.m in Sources */,
 				9DBF803420A96A76001ABD8C /* JHCellConfig.m in Sources */,
 				9D24356F208AE959008E9162 /* ViewController+MASAdditions.m in Sources */,

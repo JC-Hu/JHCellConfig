@@ -23,8 +23,21 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        [self setupViews];
+        [self setupConstraints];
     }
     return self;
+}
+
+- (void)setupViews
+{
+    
+}
+
+- (void)setupConstraints
+{
+    
 }
 
 - (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig

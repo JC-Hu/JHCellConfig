@@ -10,32 +10,50 @@
 
 @implementation BigPhotoCell
 
+// 添加视图
+- (void)setupViews
+{
+    [self.contentView addSubview:self.mainImageView];
+}
+
+// 布局
+- (void)setupConstraints
+{
+    [self.mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.contentView);
+    }];
+}
+
+- (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig
+{
+    BigPhotoCellModel *model = self.cellConfig.dataModel;
+    
+    self.mainImageView.image = [UIImage imageNamed:model.imageName];
+    
+//    self.xxxLabel.text = model.xxx;
+    
+}
+
++ (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig
+{
+    // 计算并返回高度
+    BigPhotoCellModel *model = cellConfig.dataModel;
+    CGSize imageSize = [UIImage imageNamed:model.imageName].size;
+    
+    return imageSize.height/imageSize.width *kWidthOfScreen;
+}
+
 #pragma mark - 懒加载
-// 注意，使用懒加载时，调用属性最好用self.,因为第一次调用一定要用self.
 - (UIImageView *)mainImageView
 {
     if (!_mainImageView) {
         _mainImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        [self.contentView addSubview:_mainImageView];
     }
     return _mainImageView;
 }
+@end
 
-#pragma mark - 布局
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    self.mainImageView.frame = CGRectMake(0, 0, kWidthOfScreen, kHeightOfBigPhoto);
-    
-}
+@implementation BigPhotoCellModel
 
-#pragma mark - 显示数据
-- (void)showInfo:(Model *)model
-{
-    self.mainImageView.image = [UIImage imageNamed:model.imageName1];
-    
-    [self layoutSubviews];
-}
 
 @end

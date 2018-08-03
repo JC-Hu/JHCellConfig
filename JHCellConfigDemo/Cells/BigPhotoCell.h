@@ -6,18 +6,18 @@
 //  Copyright (c) 2015年 JCHu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JHBaseCell.h"
 
 #import "Model.h"
-#import "Macro.h"
 
-#define kHeightOfBigPhoto 193
-
-@interface BigPhotoCell : UITableViewCell
+@interface BigPhotoCell : JHBaseCell
 
 @property (nonatomic, strong) UIImageView *mainImageView;
 
-/// 根据数据模型来显示内容
-- (void)showInfo:(Model *)model;
+@end
+
+@interface BigPhotoCellModel : NSObject
+
+@property (nonatomic, strong) NSString *imageName;
 
 @end

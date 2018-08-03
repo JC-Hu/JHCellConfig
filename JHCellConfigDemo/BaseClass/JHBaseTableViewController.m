@@ -26,7 +26,7 @@
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     self.mainTableView.backgroundColor = [self getTableViewBackgroundColor];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.mainTableView];
 }
