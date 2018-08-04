@@ -9,12 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Detail-->
         <scene sceneID="n8o-o5-tzy">
             <objects>
                 <navigationController id="weR-Fu-kfW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="Lsy-q4-0nA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a9p-Wu-ACa">
+                    <tabBarItem key="tabBarItem" title="Detail" id="Lsy-q4-0nA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="a9p-Wu-ACa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -26,12 +26,12 @@
             </objects>
             <point key="canvasLocation" x="750" y="392"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="B5N-KN-bjo">
             <objects>
                 <navigationController id="OCy-ET-0xW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0i9-RJ-IZe"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fqv-kH-oHH">
+                    <tabBarItem key="tabBarItem" title="List" id="0i9-RJ-IZe"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Fqv-kH-oHH">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,7 +52,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kyp-f0-5rO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YNP-aO-gtH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -71,7 +71,7 @@
                         <viewControllerLayoutGuide type="bottom" id="IL3-tR-IO9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XAZ-W7-cSd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
