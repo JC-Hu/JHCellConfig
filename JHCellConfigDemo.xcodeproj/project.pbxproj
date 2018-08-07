@@ -42,6 +42,7 @@
 		9D34948C20B0123800AEBB71 /* JHBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34948820B0123700AEBB71 /* JHBaseTableViewController.m */; };
 		9D34948D20B0123800AEBB71 /* JHBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34948B20B0123700AEBB71 /* JHBaseCell.m */; };
 		9D36A536211424210021ECD1 /* JHCellConfig.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D36A535211424200021ECD1 /* JHCellConfig.podspec */; };
+		9D44F2B22119682800DA20C5 /* BlankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D44F2B12119682800DA20C5 /* BlankCell.m */; };
 		9DBF803420A96A76001ABD8C /* JHCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBF803320A96A76001ABD8C /* JHCellConfig.m */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,8 @@
 		9D34948A20B0123700AEBB71 /* JHBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBaseTableViewController.h; sourceTree = "<group>"; };
 		9D34948B20B0123700AEBB71 /* JHBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBaseCell.m; sourceTree = "<group>"; };
 		9D36A535211424200021ECD1 /* JHCellConfig.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JHCellConfig.podspec; sourceTree = SOURCE_ROOT; };
+		9D44F2B02119682800DA20C5 /* BlankCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlankCell.h; sourceTree = "<group>"; };
+		9D44F2B12119682800DA20C5 /* BlankCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlankCell.m; sourceTree = "<group>"; };
 		9DBF803220A96A76001ABD8C /* JHCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCellConfig.h; sourceTree = "<group>"; };
 		9DBF803320A96A76001ABD8C /* JHCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCellConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +153,8 @@
 				04B8BC311AADD900006FACEA /* SellerInfoCell.m */,
 				0423AC321ABD9BA900DA3430 /* AdvanceCommentCell.h */,
 				0423AC331ABD9BA900DA3430 /* AdvanceCommentCell.m */,
+				9D44F2B02119682800DA20C5 /* BlankCell.h */,
+				9D44F2B12119682800DA20C5 /* BlankCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D44F2B22119682800DA20C5 /* BlankCell.m in Sources */,
 				04BA82441A9DF5E7004EE5C6 /* AppDelegate.m in Sources */,
 				9D34948D20B0123800AEBB71 /* JHBaseCell.m in Sources */,
 				04B8BC291AADD64A006FACEA /* BuyInfoCell.m in Sources */,

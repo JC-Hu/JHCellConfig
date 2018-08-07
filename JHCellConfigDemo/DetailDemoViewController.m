@@ -15,6 +15,7 @@
 #import "BuyInfoCell.h"
 #import "CommentCell.h"
 #import "SellerInfoCell.h"
+#import "BlankCell.h"
 
 @interface DetailDemoViewController ()
 
@@ -32,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self generateFakeCommentArray];
+    self.commentDataArray = [self generateFakeCommentArray];
     
     [self updateDataArray];
 }
@@ -45,11 +46,15 @@
     [self.dataArray addObject:[self bigPhotoCell]];
     // 购买信息
     [self.dataArray addObject:[self buyInfoCell]];
+    [self.dataArray addObject:[self blankCellWithHeight:10]];
+    
     // 评分评价
     [self.dataArray addObject:[self commentCell]];
+    [self.dataArray addObject:[self blankCellWithHeight:10]];
     // 买家信息
     [self.dataArray addObject:[self sellerInfoCell]];
-    
+    [self.dataArray addObject:[self blankCellWithHeight:15]];
+
     //
  
     for (int i = 0; i < self.commentDataArray.count; i++) {
@@ -57,8 +62,6 @@
         
         [self.dataArray addObject:cellConfig];
     }
-
-    
 }
 
 - (JHCellConfig *)bigPhotoCell {
@@ -69,6 +72,9 @@
     bigPhoto.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
         // 点击事件
         [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了大图" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
     };
     return bigPhoto;
 }
@@ -81,6 +87,9 @@
     buyInfoCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
         // 点击事件
         [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了购买信息" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
     };
     return buyInfoCell;
 }
@@ -93,6 +102,9 @@
     commentCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
         // 点击事件
         [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了评价" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
     };
     return commentCell;
 }
@@ -105,8 +117,21 @@
     sellerInfoCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
         // 点击事件
         [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了商家信息" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
     };
     return sellerInfoCell;
+}
+
+- (JHCellConfig *)blankCellWithHeight:(CGFloat)height
+{
+    BlankCellModel *model = [BlankCellModel new];
+    model.height = height;
+    model.color = [UIColor groupTableViewBackgroundColor];
+    
+    JHCellConfig *cell = [JHCellConfig cellConfigWithCellClass:[BlankCell class] dataModel:model];
+    return cell;
 }
 
 
