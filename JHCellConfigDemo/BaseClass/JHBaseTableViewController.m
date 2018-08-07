@@ -27,6 +27,15 @@
     self.mainTableView.dataSource = self;
     self.mainTableView.backgroundColor = [self getTableViewBackgroundColor];
     
+    if (@available(iOS 11.0, *)) {
+        self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
+    self.mainTableView.estimatedRowHeight = 0;
+    self.mainTableView.estimatedSectionHeaderHeight = 0;
+    self.mainTableView.estimatedSectionFooterHeight = 0;
     
     [self.view addSubview:self.mainTableView];
 }

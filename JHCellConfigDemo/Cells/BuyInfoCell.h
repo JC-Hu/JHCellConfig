@@ -6,18 +6,10 @@
 //  Copyright (c) 2015年 JCHu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+// 这里为了Demo编写方便直接继承BigPhotoCell
 
-#import "Model.h"
-#import "Macro.h"
+#import "BigPhotoCell.h"
 
-#define kHeightOfBuyInfo 157
-
-@interface BuyInfoCell : UITableViewCell
-
-@property (nonatomic, strong) UIImageView *mainImageView;
-
-/// 根据数据模型来显示内容
-- (void)showInfo:(Model *)model;
+@interface BuyInfoCell : BigPhotoCell
 
 @end

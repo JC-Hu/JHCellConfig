@@ -8,7 +8,6 @@
 
 #import "JHBaseCell.h"
 
-#import "Model.h"
 
 @interface BigPhotoCell : JHBaseCell
 

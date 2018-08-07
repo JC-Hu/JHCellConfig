@@ -23,8 +23,6 @@
 		04B8BC3D1AADDCC3006FACEA /* cell_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B8BC391AADDCC3006FACEA /* cell_04.png */; };
 		04BA82411A9DF5E7004EE5C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82401A9DF5E7004EE5C6 /* main.m */; };
 		04BA82441A9DF5E7004EE5C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82431A9DF5E7004EE5C6 /* AppDelegate.m */; };
-		04BA82471A9DF5E7004EE5C6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82461A9DF5E7004EE5C6 /* FirstViewController.m */; };
-		04BA824A1A9DF5E7004EE5C6 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82491A9DF5E7004EE5C6 /* SecondViewController.m */; };
 		04BA824D1A9DF5E7004EE5C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BA824B1A9DF5E7004EE5C6 /* Main.storyboard */; };
 		04BA824F1A9DF5E7004EE5C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BA824E1A9DF5E7004EE5C6 /* Images.xcassets */; };
 		04BA82521A9DF5E7004EE5C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA82501A9DF5E7004EE5C6 /* LaunchScreen.xib */; };
@@ -77,10 +75,6 @@
 		04BA82401A9DF5E7004EE5C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04BA82421A9DF5E7004EE5C6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04BA82431A9DF5E7004EE5C6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		04BA82451A9DF5E7004EE5C6 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		04BA82461A9DF5E7004EE5C6 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		04BA82481A9DF5E7004EE5C6 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		04BA82491A9DF5E7004EE5C6 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		04BA824C1A9DF5E7004EE5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04BA824E1A9DF5E7004EE5C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04BA82511A9DF5E7004EE5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -209,10 +203,6 @@
 				9D24357D208DD0FE008E9162 /* ListDemoViewController.m */,
 				9D24354D208AE3BF008E9162 /* DetailDemoViewController.h */,
 				9D24354E208AE3BF008E9162 /* DetailDemoViewController.m */,
-				04BA82451A9DF5E7004EE5C6 /* FirstViewController.h */,
-				04BA82461A9DF5E7004EE5C6 /* FirstViewController.m */,
-				04BA82481A9DF5E7004EE5C6 /* SecondViewController.h */,
-				04BA82491A9DF5E7004EE5C6 /* SecondViewController.m */,
 				04276D941AB7BDFC0069DCDB /* GeneralDetailViewController.h */,
 				04276D951AB7BDFC0069DCDB /* GeneralDetailViewController.m */,
 				04276D961AB7BDFC0069DCDB /* GeneralDetailViewController.xib */,
@@ -371,7 +361,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04BA824A1A9DF5E7004EE5C6 /* SecondViewController.m in Sources */,
 				04BA82441A9DF5E7004EE5C6 /* AppDelegate.m in Sources */,
 				9D34948D20B0123800AEBB71 /* JHBaseCell.m in Sources */,
 				04B8BC291AADD64A006FACEA /* BuyInfoCell.m in Sources */,
@@ -381,7 +370,6 @@
 				0423AC341ABD9BA900DA3430 /* AdvanceCommentCell.m in Sources */,
 				0423AC381AC1005A00DA3430 /* UIView+Shortcut.m in Sources */,
 				9D243575208AE959008E9162 /* MASConstraint.m in Sources */,
-				04BA82471A9DF5E7004EE5C6 /* FirstViewController.m in Sources */,
 				9DBF803420A96A76001ABD8C /* JHCellConfig.m in Sources */,
 				9D24356F208AE959008E9162 /* ViewController+MASAdditions.m in Sources */,
 				9D243576208AE959008E9162 /* MASViewConstraint.m in Sources */,

@@ -32,6 +32,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self generateFakeCommentArray];
+    
     [self updateDataArray];
 }
 
@@ -41,35 +43,21 @@
     
     // 大图
     [self.dataArray addObject:[self bigPhotoCell]];
-    
     // 购买信息
-//    JHCellConfig *buyInfo = [JHCellConfig cellConfigWithCellClass:[BuyInfoCell class] dataModel:nil];
-//
-//    
-//    [self.dataArray addObject:buyInfo];
-
+    [self.dataArray addObject:[self buyInfoCell]];
+    // 评分评价
+    [self.dataArray addObject:[self commentCell]];
+    // 买家信息
+    [self.dataArray addObject:[self sellerInfoCell]];
     
-    
     //
-    //    // 评论
-    //    // 要恢复显示这种cell，将下面的代码取消注释，即可。反之，要不显示某种cell，注释即可。其他cell同理
-    //
-    //    //        JHCellConfig *commentInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([CommentCell class]) title:@"评论" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfComment];
-    //    //
-    //    //        [_dataArray addObject:@[commentInfo]];
-    //
-    //
+ 
     for (int i = 0; i < self.commentDataArray.count; i++) {
         JHCellConfig *cellConfig = [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class] dataModel:self.commentDataArray[i]];
         
         [self.dataArray addObject:cellConfig];
     }
-    
-    //
-    //
-    //    // 商家信息
-    //    JHCellConfig *sellerInfo = [JHCellConfig cellConfigWithClassName:NSStringFromClass([SellerInfoCell class]) title:@"商家信息" showInfoMethod:@selector(showInfo:) heightOfCell:kHeightOfSellerInfo];
-    //    [self.dataArray addObject:@[sellerInfo]];
+
     
 }
 
@@ -77,16 +65,48 @@
     BigPhotoCellModel *model = [BigPhotoCellModel new];
     model.imageName = self.modelToShow.imageName1;
     
-    JHCellConfig *bigPhoto = [JHCellConfig cellConfigWithCellClass:[BigPhotoCell class] dataModel:model];
+    JHCellConfig *bigPhoto = [JHCellConfig cellConfigWithCellClass:[BigPhotoCell class] title:@"大图" dataModel:model];
+    bigPhoto.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
+        // 点击事件
+        [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了大图" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+    };
     return bigPhoto;
 }
 
-#pragma mark -
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    JHCellConfig *cellConfig = [self cellConfigOfIndexPath:indexPath];
+- (JHCellConfig *)buyInfoCell {
+    BigPhotoCellModel *model = [BigPhotoCellModel new];
+    model.imageName = self.modelToShow.imageName2;
     
-    [self.navigationController pushViewController:[DetailDemoViewController new] animated:YES];
+    JHCellConfig *buyInfoCell = [JHCellConfig cellConfigWithCellClass:[BuyInfoCell class] title:@"购买信息" dataModel:model];
+    buyInfoCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
+        // 点击事件
+        [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了购买信息" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+    };
+    return buyInfoCell;
+}
+
+- (JHCellConfig *)commentCell {
+    BigPhotoCellModel *model = [BigPhotoCellModel new];
+    model.imageName = self.modelToShow.imageName3;
+    
+    JHCellConfig *commentCell = [JHCellConfig cellConfigWithCellClass:[CommentCell class] title:@"评价" dataModel:model];
+    commentCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
+        // 点击事件
+        [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了评价" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+    };
+    return commentCell;
+}
+
+- (JHCellConfig *)sellerInfoCell {
+    BigPhotoCellModel *model = [BigPhotoCellModel new];
+    model.imageName = self.modelToShow.imageName4;
+    
+    JHCellConfig *sellerInfoCell = [JHCellConfig cellConfigWithCellClass:[SellerInfoCell class] title:@"商家信息" dataModel:model];
+    sellerInfoCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
+        // 点击事件
+        [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了商家信息" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
+    };
+    return sellerInfoCell;
 }
 
 
