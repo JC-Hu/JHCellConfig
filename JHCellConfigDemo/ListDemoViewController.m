@@ -22,9 +22,7 @@
 @implementation ListDemoViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+    [super viewDidLoad];    
     
     // 获取数据
     self.commentDataArray = [self generateFakeCommentArray];
@@ -101,7 +99,7 @@
 
 
 
-#pragma mark - Lazy init
+#pragma mark - Get
 - (NSArray *)commentDataArray
 {
     if (!_commentDataArray) {
