@@ -61,6 +61,8 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 
 @property (nonatomic, assign) BOOL isNib;
 
+@property (nonatomic, weak) UITableView *tableView;
+
 
 
 #pragma mark - Core
