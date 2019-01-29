@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];    
     
+    self.title = @"自动计算高度列表";
+    
     [self requestNewData];
 }
 
