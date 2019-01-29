@@ -34,7 +34,7 @@ cellConfig.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *sele
 
 ----
 ## Tips
-###### 关于Nib/Xib支持
+##### 关于Nib/Xib支持
 1. cell使用Nib（Xib），调用useNib或将isNib属性置为YES（默认用类名做nib文件名，如需自定义，可提前registerNib）
 
 ```
@@ -42,11 +42,11 @@ JHCellConfig *cell = [JHCellConfig cellConfigWithCellClass:[ListTableViewCell cl
 ```
 
 
-###### 关于cell的生成(复用)
+##### 关于cell的生成(复用)
 1. 生成/复用cell时会自动调用更新UI的方法
 2. cell重用ID默认使用类名，想自定义可以使用cellConfig.reuseID属性
 
-###### 关于cell的高度
+##### 关于cell的高度
 1. 建议仿照Demo，在Cell.m中实现+ (CGFloat)cellHeightWithCellConfig:协议方法，在此方法中返回cell高度
 2. 如cell为固定高度，也可使用cellConfig.constantHeight属性，会优先使用。（个人不建议，会导致代码风格不统一，不易阅读）
 3. 新增高度自动计算特性，可根据约束自动计算cell高度（参照FDTemplateLayoutCell）
@@ -71,7 +71,7 @@ return [cellConfig dynamicHeightCalResult]; // 简易方法,会自动缓存计�
 ```
 4. 使用高度自动计算时，如需不缓存高度，请使用上面的“完整方法”来计算高度，并且usingCache:传NO
 
-###### 关于cell的点击事件
+##### 关于cell的点击事件
 1. 提供了selectBlock属性来处理点击事件，需在tableView didSelectCell时调用（建议参照Demo在基类处理）
 
 
