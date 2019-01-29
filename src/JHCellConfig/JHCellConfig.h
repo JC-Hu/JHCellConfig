@@ -15,10 +15,12 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 @protocol JHCellConfigProtocol <NSObject>
 
 @optional
+/// 显示数据模型（可改为自定义的方法，见属性updateContentMethod）
 - (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig;
+/// 高度获取（可改为自定义的方法，见属性cellHeightMethod）
 + (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig;
 
-// 会在生成cell时调用，即cellOfCellConfigWithTableView:方法
+// 会在生成cell时调用，即cellOfCellConfigWithTableView:方法（如BaseCell定义了属性cellConfig，即可自动赋值，便于通过cell找到对应的cellConfig）
 - (void)setCellConfig:(JHCellConfig *)cellConfig;
 
 @end
@@ -37,36 +39,34 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 
 /// cell类名
 @property (nonatomic, strong) NSString *className;
-
-/// 指定重用ID，不赋值则使用类名
-@property (nonatomic, strong) NSString *reuseID;
-
-/// 标题 - 如“我的订单”，对不同种cell进行不同设置时，可以通过 其对应的 cellConfig.title 进行判断
-@property (nonatomic, strong) NSString *title;
-
+/// 是否为nib文件
+@property (nonatomic, assign) BOOL isNib;
 /// 业务数据模型
 @property (nonatomic, strong) id dataModel;
-
-/// 显示数据模型的方法
-@property (nonatomic, assign) SEL updateContentMethod;
-/// 高度计算方法
-@property (nonatomic, assign) SEL cellHeightMethod;
-
-/// cell高度(固定高度)
-@property (nonatomic, assign) CGFloat constantHeight;
-/// 高度缓存
-@property (nonatomic, assign) CGFloat cachedHeight;
 /// tableView didSelectCell时调用
 @property (nonatomic, copy) JHCellSelectBlock selectBlock;
-
-@property (nonatomic, assign) BOOL isNib;
-
+/// 对应的tableView，通常用在自适应高度计算时，需手动赋值
 @property (nonatomic, weak) UITableView *tableView;
+
+/// 显示数据模型的方法（默认为协议中的方法，可改为自定义的方法）
+@property (nonatomic, assign) SEL updateContentMethod;
+/// 高度获取方法（默认为协议中的方法，可改为自定义的方法）
+@property (nonatomic, assign) SEL cellHeightMethod;
+
+/// cell固定高度（最优先使用）
+@property (nonatomic, assign) CGFloat constantHeight;
+/// 高度缓存，需根据需求自行赋值（次于固定高度使用，如不为0，则不执行高度获取方法）
+@property (nonatomic, assign) CGFloat cachedHeight;
+
+/// 指定重用ID，不赋值则使用cell类名
+@property (nonatomic, strong) NSString *reuseID;
+
+/// 标题 - 如“我的订单”，对不同种cell进行不同设置时，可以通过 其对应的 cellConfig.title 进行判断（加入点击事件，用处不大了）
+@property (nonatomic, strong) NSString *title;
 
 
 
 #pragma mark - Core
-
 + (instancetype)cellConfigWithCellClass:(Class)cellClass
                               dataModel:(id)dataModel;
 
@@ -79,15 +79,16 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
                               dataModel:(id)dataModel
                             selectBlock:(JHCellSelectBlock)selectBlock;
 
-/// 根据cellConfig生成cell，重用ID为cell类名
+/// 根据cellConfig生成cell
 - (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView;
 
 
-/// 获取cell高度
-- (CGFloat)cellHeight;
 /// 使用xib，须在生成cell前调用
 - (JHCellConfig *)useNib;
 /// 根据类名，快捷注册cell
 - (JHCellConfig *)registerNib:(UITableView *)tableView;
+
+/// 获取cell高度
+- (CGFloat)cellHeight;
 
 @end

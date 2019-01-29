@@ -112,11 +112,9 @@
         
         [invocation getReturnValue:&height];
         
-        self.cachedHeight = height;
-        
-        return self.cachedHeight;
+        return height;
     }
-    return self.cachedHeight;
+    return 0;
 }
 
 - (NSString *)cellID
