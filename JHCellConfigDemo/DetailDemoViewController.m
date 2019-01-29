@@ -31,16 +31,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    self.commentDataArray = [self generateFakeCommentArray];
+    [self requestNewData];
     
-    [self updateDataArray];
 }
 
+// 获取数据并刷新
+- (void)requestNewData
+{
+    self.commentDataArray = [self generateFakeCommentArray];
+    [self reloadData];
+}
+
+// 更新UI
+- (void)reloadData
+{
+    [self updateDataArray];
+    [self.mainTableView reloadData];
+}
+
+// 更新CellConfig数组
 - (void)updateDataArray
 {
     [self.dataArray removeAllObjects];
+    
+    // 构建页面
     
     // 大图
     [self.dataArray addObject:[self bigPhotoCell]];
@@ -55,8 +70,7 @@
     [self.dataArray addObject:[self sellerInfoCell]];
     [self.dataArray addObject:[self blankCellWithHeight:15]];
 
-    //
- 
+    // 评价列表
     for (int i = 0; i < self.commentDataArray.count; i++) {
         JHCellConfig *cellConfig = [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class] dataModel:self.commentDataArray[i]];
         
@@ -64,7 +78,9 @@
     }
 }
 
-- (JHCellConfig *)bigPhotoCell {
+#pragma mark -
+- (JHCellConfig *)bigPhotoCell
+{
     BigPhotoCellModel *model = [BigPhotoCellModel new];
     model.imageName = self.modelToShow.imageName1;
     
@@ -79,7 +95,8 @@
     return bigPhoto;
 }
 
-- (JHCellConfig *)buyInfoCell {
+- (JHCellConfig *)buyInfoCell
+{
     BigPhotoCellModel *model = [BigPhotoCellModel new];
     model.imageName = self.modelToShow.imageName2;
     
@@ -94,7 +111,8 @@
     return buyInfoCell;
 }
 
-- (JHCellConfig *)commentCell {
+- (JHCellConfig *)commentCell
+{
     BigPhotoCellModel *model = [BigPhotoCellModel new];
     model.imageName = self.modelToShow.imageName3;
     
@@ -109,7 +127,8 @@
     return commentCell;
 }
 
-- (JHCellConfig *)sellerInfoCell {
+- (JHCellConfig *)sellerInfoCell
+{
     BigPhotoCellModel *model = [BigPhotoCellModel new];
     model.imageName = self.modelToShow.imageName4;
     

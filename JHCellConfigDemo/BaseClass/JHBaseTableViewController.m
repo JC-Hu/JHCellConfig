@@ -107,6 +107,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     JHCellConfig *cellConfig = [self cellConfigOfIndexPath:indexPath];
+    // 在此赋值便于计算高度
+    cellConfig.tableView = tableView;
     
     return [cellConfig cellHeight];
 }

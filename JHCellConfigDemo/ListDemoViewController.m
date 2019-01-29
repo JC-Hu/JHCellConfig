@@ -24,38 +24,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];    
     
-    // 获取数据
-    self.commentDataArray = [self generateFakeCommentArray];
-    
-    // 生成CellConfig
-    [self updateDataArray];
-    
+    [self requestNewData];
 }
 
+// 获取数据并刷新
+- (void)requestNewData
+{
+    self.commentDataArray = [self generateFakeCommentArray];
+    [self reloadData];
+}
 
+// 更新UI
+- (void)reloadData
+{
+    [self updateDataArray];
+    [self.mainTableView reloadData];
+}
+
+// 更新cellConfig数组
 - (void)updateDataArray
 {
     [self.dataArray removeAllObjects];
     
     for (int i = 0; i < self.commentDataArray.count; i++) {
-        JHCellConfig *cellConfig =
-        [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class]
-                                        title:nil
-                                    dataModel:self.commentDataArray[i]
-                                  selectBlock:^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell)
-        {
-            // 点击事件
-            Comment *comment = self.commentDataArray[i];
-            
-            GeneralDetailViewController *detailVC = [GeneralDetailViewController new];
-            detailVC.title = [comment.userName stringByAppendingString:@" 的评论详情"];
-            
-            [self.navigationController pushViewController:detailVC animated:YES];
-            
-        }];
+        JHCellConfig * cellConfig = [self commentListCellWithModel:self.commentDataArray[i]];
         
         [self.dataArray addObject:cellConfig];
     }
+}
+
+#pragma mark -
+- (JHCellConfig *)commentListCellWithModel:(Comment *)model
+{
+    JHCellConfig *cellConfig =
+    [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class]
+                                    title:nil
+                                dataModel:model
+                              selectBlock:^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell)
+     {
+         // 点击事件
+         GeneralDetailViewController *detailVC = [GeneralDetailViewController new];
+         detailVC.title = [model.userName stringByAppendingString:@" 的评论详情"];
+         
+         [self.navigationController pushViewController:detailVC animated:YES];
+         
+     }];
+    return cellConfig;
 }
 
 #pragma mark - 

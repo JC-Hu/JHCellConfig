@@ -27,7 +27,7 @@
     self.userNameButton.frame = CGRectMake(kSpace, kSpace, 50, 20);
     
     
-    CGFloat height = [[self class] HeightForText:self.contentLabel.text];
+    CGFloat height = [[self class] heightForText:self.contentLabel.text];
 
     self.contentLabel.frame = CGRectMake(self.userNameButton.left, self.userNameButton.bottom + kSpace/2, kWidthOfContent, height);
     
@@ -48,10 +48,10 @@
 + (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig
 {
     Comment *comment = cellConfig.dataModel;
-
+    
     // 固定高度
     CGFloat fixedHeight = kMinHeightOfAdvanceComment - kHeightMinOfContent;
-    CGFloat changeHeight = [self HeightForText:comment.content];
+    CGFloat changeHeight = [self heightForText:comment.content];
     
     if (changeHeight < kHeightMinOfContent) {
         changeHeight = kHeightMinOfContent;
@@ -61,7 +61,7 @@
 }
 
 /// 计算内容文本的高度方法
-+ (CGFloat)HeightForText:(NSString *)text
++ (CGFloat)heightForText:(NSString *)text
 {
     NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:kSizeOfLabelFont]};
     CGSize size = CGSizeMake(kWidthOfContent, 2000);
