@@ -74,4 +74,8 @@ return [cellConfig dynamicHeightCalResult]; // 简易方法,会自动缓存计�
 ##### 关于cell的点击事件
 1. 提供了selectBlock属性来处理点击事件，需在tableView didSelectCell时调用（建议参照Demo在基类处理）
 
+## 最后
+请多看Demo
+请多看Demo
+请多看Demo
 
