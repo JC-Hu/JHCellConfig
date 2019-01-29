@@ -26,6 +26,7 @@
 		04BA824D1A9DF5E7004EE5C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BA824B1A9DF5E7004EE5C6 /* Main.storyboard */; };
 		04BA824F1A9DF5E7004EE5C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BA824E1A9DF5E7004EE5C6 /* Images.xcassets */; };
 		04BA82521A9DF5E7004EE5C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA82501A9DF5E7004EE5C6 /* LaunchScreen.xib */; };
+		8529EEC32200212F00F2AE9B /* JHCellConfig+DynamicHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8529EEC22200212F00F2AE9B /* JHCellConfig+DynamicHeight.m */; };
 		9D24354F208AE3BF008E9162 /* DetailDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24354E208AE3BF008E9162 /* DetailDemoViewController.m */; };
 		9D24356E208AE959008E9162 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D243555208AE958008E9162 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		9D24356F208AE959008E9162 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D24355E208AE958008E9162 /* ViewController+MASAdditions.m */; };
@@ -78,6 +79,8 @@
 		04BA824C1A9DF5E7004EE5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04BA824E1A9DF5E7004EE5C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04BA82511A9DF5E7004EE5C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8529EEC12200212F00F2AE9B /* JHCellConfig+DynamicHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JHCellConfig+DynamicHeight.h"; sourceTree = "<group>"; };
+		8529EEC22200212F00F2AE9B /* JHCellConfig+DynamicHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JHCellConfig+DynamicHeight.m"; sourceTree = "<group>"; };
 		9D24354D208AE3BF008E9162 /* DetailDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailDemoViewController.h; sourceTree = "<group>"; };
 		9D24354E208AE3BF008E9162 /* DetailDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailDemoViewController.m; sourceTree = "<group>"; };
 		9D243554208AE958008E9162 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 			children = (
 				9DBF803220A96A76001ABD8C /* JHCellConfig.h */,
 				9DBF803320A96A76001ABD8C /* JHCellConfig.m */,
+				8529EEC12200212F00F2AE9B /* JHCellConfig+DynamicHeight.h */,
+				8529EEC22200212F00F2AE9B /* JHCellConfig+DynamicHeight.m */,
 			);
 			name = JHCellConfig;
 			path = src/JHCellConfig;
@@ -370,6 +375,7 @@
 				9D34948C20B0123800AEBB71 /* JHBaseTableViewController.m in Sources */,
 				04B8BC2A1AADD64A006FACEA /* CommentCell.m in Sources */,
 				0423AC341ABD9BA900DA3430 /* AdvanceCommentCell.m in Sources */,
+				8529EEC32200212F00F2AE9B /* JHCellConfig+DynamicHeight.m in Sources */,
 				0423AC381AC1005A00DA3430 /* UIView+Shortcut.m in Sources */,
 				9D243575208AE959008E9162 /* MASConstraint.m in Sources */,
 				9DBF803420A96A76001ABD8C /* JHCellConfig.m in Sources */,

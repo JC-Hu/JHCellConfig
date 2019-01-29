@@ -40,7 +40,7 @@
     BigPhotoCellModel *model = cellConfig.dataModel;
     CGSize imageSize = [UIImage imageNamed:model.imageName].size;
     
-    return imageSize.height/imageSize.width *kWidthOfScreen;
+    return imageSize.height/imageSize.width * cellConfig.tableView.width;
 }
 
 #pragma mark - 懒加载

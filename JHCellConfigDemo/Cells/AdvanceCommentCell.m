@@ -10,6 +10,7 @@
 #import "Macro.h"
 #import "UIView+Shortcut.h"
 
+
 #define kHeightMinOfContent 20 // contentLabel最小高度
 
 #define kSpace 20
@@ -20,16 +21,28 @@
 @implementation AdvanceCommentCell
 
 
-- (void)layoutSubviews
+// 添加视图
+- (void)setupViews
 {
-    [super layoutSubviews];
-    
-    self.userNameButton.frame = CGRectMake(kSpace, kSpace, 50, 20);
-    
-    
-    CGFloat height = [[self class] heightForText:self.contentLabel.text];
+    [self.contentView addSubview:self.userNameButton];
+    [self.contentView addSubview:self.contentLabel];
+}
 
-    self.contentLabel.frame = CGRectMake(self.userNameButton.left, self.userNameButton.bottom + kSpace/2, kWidthOfContent, height);
+// 布局
+- (void)setupConstraints
+{
+    [self.userNameButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.mas_equalTo(kSpace);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(20);
+    }];
+    
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.userNameButton);
+        make.top.mas_equalTo(self.userNameButton.mas_bottom).mas_offset(kSpace/2.0);
+        make.bottom.mas_lessThanOrEqualTo(-kSpace);
+        make.right.mas_lessThanOrEqualTo(-kSpace);
+    }];
     
 }
 
@@ -41,39 +54,28 @@
     [self.userNameButton setTitle:comment.userName forState:UIControlStateNormal];
     
     self.contentLabel.text = comment.content;
-    
-    [self layoutSubviews];
 }
 
+// 返回cell高度
 + (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig
 {
-    Comment *comment = cellConfig.dataModel;
+    // 自动计算
+    return [cellConfig dynamicHeightCalResult]; // 简易方法,会自动缓存计算结果
     
-    // 固定高度
-    CGFloat fixedHeight = kMinHeightOfAdvanceComment - kHeightMinOfContent;
-    CGFloat changeHeight = [self heightForText:comment.content];
+    // 完整方法
+//    return [cellConfig dynamicHeightWithConfiguration:^(id cell) {
+//        // 在此block可在高度计算前对cell进行操作，会在updateContentWithCellConfig:后执行
+//        // do something
+//    }
+//                                           identifier:nil // 指定reuseId，默认为cell类名
+//                                           usingCache:NO];// 可设置为不缓存计算结果
     
-    if (changeHeight < kHeightMinOfContent) {
-        changeHeight = kHeightMinOfContent;
-    }
-    
-    return fixedHeight + changeHeight;
-}
-
-/// 计算内容文本的高度方法
-+ (CGFloat)heightForText:(NSString *)text
-{
-    NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:kSizeOfLabelFont]};
-    CGSize size = CGSizeMake(kWidthOfContent, 2000);
-    CGRect frame = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
-    return frame.size.height;
 }
 
 - (UIButton *)userNameButton
 {
     if (!_userNameButton) {
         _userNameButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [self.contentView addSubview:_userNameButton];
         
         _userNameButton.titleLabel.textColor = [UIColor colorWithRed:90 / 255.0 green:125 / 255.0 blue:179 / 255.0 alpha:1];
     }
@@ -84,7 +86,6 @@
 {
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [self.contentView addSubview:_contentLabel];
         
         _contentLabel.textColor = [UIColor grayColor];
         _contentLabel.numberOfLines = 0;

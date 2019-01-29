@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "JHCellConfig.h"
+#import "JHCellConfig+DynamicHeight.h"
 #import "Masonry.h"
 #import "UIView+Shortcut.h"
 #import "Macro.h"
