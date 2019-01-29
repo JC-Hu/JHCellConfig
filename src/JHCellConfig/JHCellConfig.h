@@ -15,7 +15,7 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 @protocol JHCellConfigProtocol <NSObject>
 
 @optional
-/// 显示数据模型（可改为自定义的方法，见属性updateContentMethod）
+/// 更新界面（可改为自定义的方法，见属性updateContentMethod）
 - (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig;
 /// 高度获取（可改为自定义的方法，见属性cellHeightMethod）
 + (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig;
@@ -39,16 +39,16 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 
 /// cell类名
 @property (nonatomic, strong) NSString *className;
-/// 是否为nib文件
+/// 是否使用nib文件（建议使用.useNib方法，更简洁）
 @property (nonatomic, assign) BOOL isNib;
-/// 业务数据模型
+/// 业务数据模型/或cellModel等，本类只做传值用
 @property (nonatomic, strong) id dataModel;
 /// tableView didSelectCell时调用
 @property (nonatomic, copy) JHCellSelectBlock selectBlock;
 /// 对应的tableView，通常用在自适应高度计算时，需手动赋值
 @property (nonatomic, weak) UITableView *tableView;
 
-/// 显示数据模型的方法（默认为协议中的方法，可改为自定义的方法）
+/// 更新界面的方法（默认为协议中的方法，可改为自定义的方法）
 @property (nonatomic, assign) SEL updateContentMethod;
 /// 高度获取方法（默认为协议中的方法，可改为自定义的方法）
 @property (nonatomic, assign) SEL cellHeightMethod;
@@ -61,7 +61,7 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 /// 指定重用ID，不赋值则使用cell类名
 @property (nonatomic, strong) NSString *reuseID;
 
-/// 标题 - 如“我的订单”，对不同种cell进行不同设置时，可以通过 其对应的 cellConfig.title 进行判断（加入点击事件，用处不大了）
+/// 标题 - 如“我的订单”，对不同种cell进行不同设置时，可以通过 其对应的 cellConfig.title 进行判断（加入点击事件后，用处不大）
 @property (nonatomic, strong) NSString *title;
 
 
@@ -79,7 +79,7 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
                               dataModel:(id)dataModel
                             selectBlock:(JHCellSelectBlock)selectBlock;
 
-/// 根据cellConfig生成cell
+/// 根据cellConfig生成cell，并调用更新界面方法
 - (UITableViewCell *)cellOfCellConfigWithTableView:(UITableView *)tableView;
 
 

@@ -71,9 +71,11 @@
     [self.dataArray addObject:[self blankCellWithHeight:15]];
 
     // 评价列表
-    for (int i = 0; i < self.commentDataArray.count; i++) {
-        JHCellConfig *cellConfig = [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class] dataModel:self.commentDataArray[i]];
-        
+    for (Comment *model in self.commentDataArray) {
+        JHCellConfig *cellConfig = [JHCellConfig cellConfigWithCellClass:[AdvanceCommentCell class] dataModel:model];
+        cellConfig.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
+            // 点击事件
+        };
         [self.dataArray addObject:cellConfig];
     }
 }
@@ -100,7 +102,7 @@
     BigPhotoCellModel *model = [BigPhotoCellModel new];
     model.imageName = self.modelToShow.imageName2;
     
-    JHCellConfig *buyInfoCell = [JHCellConfig cellConfigWithCellClass:[BuyInfoCell class] title:@"购买信息" dataModel:model];
+    JHCellConfig *buyInfoCell = [JHCellConfig cellConfigWithCellClass:[BuyInfoCell class] dataModel:model];
     buyInfoCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
         // 点击事件
         [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了购买信息" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];
@@ -116,7 +118,7 @@
     BigPhotoCellModel *model = [BigPhotoCellModel new];
     model.imageName = self.modelToShow.imageName3;
     
-    JHCellConfig *commentCell = [JHCellConfig cellConfigWithCellClass:[CommentCell class] title:@"评价" dataModel:model];
+    JHCellConfig *commentCell = [JHCellConfig cellConfigWithCellClass:[CommentCell class] dataModel:model];
     commentCell.selectBlock = ^(JHCellConfig *selectCellConfig, UITableViewCell *selectCell) {
         // 点击事件
         [self presentViewController:[UIAlertController alertControllerWithTitle:@"点击Cell" message:@"点击了评价" preferredStyle:UIAlertControllerStyleAlert] animated:YES completion:nil];

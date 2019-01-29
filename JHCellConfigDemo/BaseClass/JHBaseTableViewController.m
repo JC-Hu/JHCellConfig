@@ -134,6 +134,7 @@
 #pragma mark -
 - (JHCellConfig *)cellConfigOfIndexPath:(NSIndexPath *)indexPath
 {
+    // 兼容一维和二维数组
     if (![self isTwoDimensionalDataArray]) {
         
         if (self.dataArray.count > indexPath.row) {
