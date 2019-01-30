@@ -11,9 +11,10 @@ pod 'JHCellConfig', '~> 2.1.0'
 适用于UITableView的“蝇量级”框架。
 将业务复杂度集中，减少代码量，提高可阅读性。
 
-- 本类的思想，是将tableView中cell的相关逻辑集中起来，
-- 放到数组中管理，而不是将业务逻辑分散在各个代理方法中。
-- 特别是使用基类BaseTableViewController进行转接后，具体业务vc不需要实现tableView cell相关的代理方法（header/footer除外）
+本类的思想，是将tableView中cell的相关逻辑集中起来，
+放到数组中管理，而不是将业务逻辑分散在各个代理方法中。
+特别是使用基类BaseTableViewController进行转接后，
+具体业务vc不需要实现tableView cell相关的代理方法（header/footer除外）
 
 ----
 
