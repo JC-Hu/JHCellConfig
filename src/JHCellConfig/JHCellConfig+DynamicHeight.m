@@ -30,7 +30,9 @@
     
     CGFloat height = [self dynamicHeightWithConfiguration:configuration identifier:identifier];
     
-    self.cachedHeight = height;
+    if (usingCache) {
+            self.cachedHeight = height;
+    }
     
     return height;
 }
