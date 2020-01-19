@@ -20,8 +20,8 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 /// 高度获取（可改为自定义的方法，见属性cellHeightMethod）
 + (CGFloat)cellHeightWithCellConfig:(JHCellConfig *)cellConfig;
 
-// 会在生成cell时调用，即cellOfCellConfigWithTableView:方法（如BaseCell定义了属性cellConfig，即可自动赋值，便于通过cell找到对应的cellConfig）
-- (void)setCellConfig:(JHCellConfig *)cellConfig;
+// 会在生成cell时调用，即cellOfCellConfigWithTableView:方法（如BaseCell定义了属性jhg_cellConfig，即可自动赋值，便于通过cell找到对应的cellConfig）
+- (void)setJhg_cellConfig:(JHCellConfig *)cellConfig;
 
 @end
 

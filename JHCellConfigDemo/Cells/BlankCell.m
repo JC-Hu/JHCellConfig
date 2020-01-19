@@ -23,7 +23,7 @@
 
 - (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig
 {
-    BlankCellModel *model = self.cellConfig.dataModel;
+    BlankCellModel *model = self.jhg_cellConfig.dataModel;
     
     self.contentView.backgroundColor = model.color;
 }

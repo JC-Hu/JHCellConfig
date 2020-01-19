@@ -70,7 +70,7 @@
     
     // bind
     if ([cell conformsToProtocol:@protocol(JHCellConfigProtocol)]) {
-        [((id <JHCellConfigProtocol>)cell) setCellConfig:self];
+        [((id <JHCellConfigProtocol>)cell) setJhg_cellConfig:self];
     }
     
     // 更新cell界面

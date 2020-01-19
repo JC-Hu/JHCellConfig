@@ -26,7 +26,7 @@
 
 - (void)updateContentWithCellConfig:(JHCellConfig *)cellConfig
 {
-    BigPhotoCellModel *model = self.cellConfig.dataModel;
+    BigPhotoCellModel *model = self.jhg_cellConfig.dataModel;
     
     self.mainImageView.image = [UIImage imageNamed:model.imageName];
     
