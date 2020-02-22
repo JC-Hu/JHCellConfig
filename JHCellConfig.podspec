@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "JHCellConfig"
-s.version      = "2.1.0"
+s.version      = "2.2.0"
 s.summary      = "A lightweight general CellModel for building multiple type cell in UITableView"
 s.homepage     = "https://github.com/JC-Hu/JHCellConfig"
 s.license      = "MIT"
