@@ -78,7 +78,7 @@
         
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [cell performSelector:self.updateContentMethod withObject:self];
+        [cell performSelector:self.updateContentMethod withObject:self.updateContentWithDataModel?self.dataModel:self];
 #pragma clang diagnostic pop
     }
     

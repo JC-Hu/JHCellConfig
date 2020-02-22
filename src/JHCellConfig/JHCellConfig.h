@@ -50,6 +50,8 @@ typedef void(^JHCellSelectBlock)(JHCellConfig *selectCellConfig, UITableViewCell
 
 /// 更新界面的方法（默认为协议中的方法，可改为自定义的方法）
 @property (nonatomic, assign) SEL updateContentMethod;
+/// 更新界面方法的参数是否传dataModel，默认NO，默认传此JHCellConfig实例
+@property (nonatomic, assign) BOOL updateContentWithDataModel;
 /// 高度获取方法（默认为协议中的方法，可改为自定义的方法）
 @property (nonatomic, assign) SEL cellHeightMethod;
 
