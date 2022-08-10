@@ -5,7 +5,7 @@
 ![Pod License](https://img.shields.io/cocoapods/l/JHCellConfig.svg?style=flat)
 
 ```ruby
-pod 'JHCellConfig', '~> 2.1.0'
+pod 'JHCellConfig', '~> 2.2.0'
 ```
 
 适用于UITableView的“蝇量级”框架。
