@@ -1,0 +1,6 @@
+framework module JHCellConfig {
+  umbrella header "JHCellConfig-umbrella.h"
+
+  export *
+  module * { export * }
+}

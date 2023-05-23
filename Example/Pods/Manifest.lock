@@ -1,0 +1,23 @@
+PODS:
+  - JHCellConfig (2.2.0)
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - JHCellConfig (from `../`)
+  - Masonry
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+
+EXTERNAL SOURCES:
+  JHCellConfig:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JHCellConfig: 57a06eb605fe2ca46137c00f8ffd26ef2dbe7bdc
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 21f8c0414dc8065ace2686232b70324c1b80ad40
+
+COCOAPODS: 1.12.1
